@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squad — Apapa Kings FC</title>
+  <meta name="description" content="Meet the Apapa Kings FC squad." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .squad-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .position-group { margin-bottom: 4rem; }
+
+    .position-label {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255,107,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .position-label span {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: rgba(255,107,0,0.1);
+      border: 1px solid rgba(255,107,0,0.2);
+      padding: 0.2rem 0.6rem;
+    }
+
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .staff-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .staff-card:hover { border-color: rgba(255,107,0,0.3); }
+
+    .staff-avatar {
+      width: 64px;
+      height: 64px;
+      background: rgba(255,107,0,0.1);
+      border: 2px solid rgba(255,107,0,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .staff-role {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.3rem;
+    }
+
+    .staff-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+
+    .staff-detail {
+      font-size: 0.8rem;
+      color: var(--grey);
+      margin-top: 0.2rem;
+    }
+
+    @media (max-width: 1100px) {
+      .squad-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .squad-grid { grid-template-columns: repeat(2, 1fr); }
+      .staff-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .squad-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="crest"><img src="images/crest.png" alt="Apapa Kings FC" /></div>
+    <span>APAPA <em>KINGS</em> FC</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="squad.html" class="active">Squad</a></li>
+    <li><a href="fixtures.html">Fixtures</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="sponsors.html" class="nav-cta">Sponsor Us</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-header" data-title="SQUAD">
+  <p class="section-label">2026 Season</p>
+  <h1>THE <span>SQUAD</span></h1>
+  <p>Kings Never Settle</p>
+</div>
+
+<section class="section">
+
+  <!-- GOALKEEPERS -->
+  <div class="position-group">
+    <div class="position-label">Goalkeepers <span>GK</span></div>
+    <div class="squad-grid">
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">SOCHIMA</div>
+          <div class="player-number">1</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Goalkeeper</div>
+          <div class="player-name">Sochima</div>
+          <div class="player-meta">
+            
+            
+          </div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">EBUBE</div>
+          <div class="player-number">13</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Goalkeeper</div>
+          <div class="player-name">Ebube</div>
+          <div class="player-meta">
+           
+         
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEFENDERS -->
+  <div class="position-group">
+    <div class="position-label">Defenders <span>DEF</span></div>
+    <div class="squad-grid">
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">2</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Centre Back</div>
+          <div class="player-name">Chukwuyem</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">3</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Centre Back</div>
+          <div class="player-name">Christian</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">4</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Left Back</div>
+          <div class="player-name">Ericki</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+	<div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">5</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Right Back</div>
+          <div class="player-name">Benjamin</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+	<div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">6</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Centre Back / Defensive Mid</div>
+          <div class="player-name">Chizurum</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">18</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Left Back</div>
+          <div class="player-name">Benson</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+  </div>
+
+
+  <!-- MIDFIELDERS -->
+  <div class="position-group">
+    <div class="position-label">Midfielders <span>MID</span></div>
+    <div class="squad-grid">
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">7</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Attacking Mid</div>
+          <div class="player-name">Francis</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">8</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Central Mid</div>
+          <div class="player-name">Arthur</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">10</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Attacking Mid</div>
+          <div class="player-name">Joseph</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+	<div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">12</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Central Mid</div>
+          <div class="player-name">Ola</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+	<div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">15</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Defensive Mid</div>
+          <div class="player-name">Great</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+	<div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">19</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Defensive Mid</div>
+          <div class="player-name">Pascal</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">20</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Attacking Mid</div>
+          <div class="player-name">Alike</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORWARDS -->
+  <div class="position-group">
+    <div class="position-label">Forwards <span>FWD</span></div>
+    <div class="squad-grid">
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">9</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Striker</div>
+          <div class="player-name">Wisdom</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">11</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Right Winger</div>
+          <div class="player-name">David</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">14</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Left Winger / Attacking Mid</div>
+          <div class="player-name">Aboy</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+	<div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">16</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Striker</div>
+          <div class="player-name">Genesis</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+      <div class="player-card observe">
+        <div class="player-photo">
+          <div class="player-photo-inner">⬡</div>
+          <div class="player-number">17</div>
+        </div>
+        <div class="player-info">
+          <div class="player-position">Left Winger</div>
+          <div class="player-name">Chibuzor</div>
+          <div class="player-meta"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COACHING STAFF -->
+  <div class="divider"></div>
+  <p class="section-label">Behind the Bench</p>
+  <h2 class="section-title" style="margin-bottom:2rem;">COACHING STAFF</h2>
+
+  <div class="staff-grid">
+    <div class="staff-card observe">
+      <div class="staff-avatar">CN</div>
+      <div>
+        <div class="staff-role">Head Coach</div>
+        <div class="staff-name">Nwell</div>
+        <div class="staff-detail">GRA · Lagos, Nigeria</div>
+      </div>
+    </div>
+    
+
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="crest"><img src="images/crest.png" alt="Apapa Kings FC" /></div>
+      <h3>APAPA KINGS FC</h3>
+      <p>Kings Never Settle</p>
+      <p class="desc">A Lagos-based football club on a mission. Playing with passion, heart, and ambition every matchday.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="squad.html">Squad</a></li>
+        <li><a href="fixtures.html">Fixtures & Results</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:contact@apapakingsfc.xyz">info@apapakingsfc.xyz</a></li>
+        
+        <li><a href="https://www.tiktok.com/@apapa_kingsfc/">TikTok</a></li>
+        <li><a href="https://wa.me/8102776552">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Apapa Kings FC · apapakingsfc.xyz</p>
+    <div class="social-links">
+      
+      <a href="https://www.tiktok.com/@apapa_kingsfc/" class="social-link">TT</a>
+      <a href="https://wa.me/8102776552" class="social-link">WA</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

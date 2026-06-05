@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sponsors — Apapa Kings FC</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* HERO PITCH */
+    .sponsor-hero {
+      background: linear-gradient(135deg, rgba(255,107,0,0.1) 0%, var(--dark-2) 100%);
+      border: 1px solid rgba(255,107,0,0.15);
+      padding: 4rem 3rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sponsor-hero::before {
+      content: '₦';
+      position: absolute;
+      right: 2rem; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: 16rem;
+      color: rgba(255,107,0,0.04);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .sponsor-hero h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: 4px;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .sponsor-hero p {
+      font-size: 1rem;
+      color: var(--grey);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    /* REACH STATS */
+    .reach-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .reach-stat {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-top: 3px solid var(--orange);
+    }
+
+    .reach-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--orange);
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .reach-label {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .reach-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 0.4rem;
+    }
+
+    /* PACKAGES */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .pkg {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .pkg:hover { border-color: rgba(255,107,0,0.3); transform: translateY(-4px); }
+
+    .pkg.featured { border-color: var(--orange); }
+
+    .pkg.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: var(--orange);
+      color: var(--black);
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      padding: 0.4rem;
+    }
+
+    .pkg-header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .pkg.featured .pkg-header { padding-top: 2.5rem; }
+
+    .pkg-tier {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      letter-spacing: 3px;
+      margin-bottom: 0.25rem;
+    }
+
+    .pkg-price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--orange);
+      letter-spacing: 2px;
+    }
+
+    .pkg-price span {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      color: var(--grey);
+      letter-spacing: 1px;
+    }
+
+    .pkg-body {
+      padding: 1.5rem 2rem 2rem;
+    }
+
+    .pkg-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .pkg-features li {
+      font-size: 0.85rem;
+      color: var(--grey);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.4;
+    }
+
+    .pkg-features li::before {
+      content: '—';
+      color: var(--orange);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* CURRENT SPONSORS */
+    .sponsors-wall {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .sponsor-slot {
+      background: var(--dark-2);
+      border: 1px dashed rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      min-height: 120px;
+    }
+
+    .sponsor-slot:hover {
+      border-color: var(--orange);
+      background: rgba(255,107,0,0.04);
+    }
+
+    .sponsor-slot-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sponsor-slot-icon {
+      font-size: 1.8rem;
+      opacity: 0.2;
+    }
+
+    .sponsor-slot-label {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* CONTACT FORM */
+    .sponsor-form {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem;
+      max-width: 700px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group.full { grid-column: span 2; }
+
+    .form-group label {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--dark);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.8rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--grey); }
+
+    .form-group select option { background: var(--dark); }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    @media (max-width: 900px) {
+      .reach-stats { grid-template-columns: 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .sponsors-wall { grid-template-columns: repeat(2, 1fr); }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+      .sponsor-form { padding: 2rem 1.5rem; }
+      .sponsor-hero { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="crest"><img src="images/crest.png" alt="Apapa Kings FC" /></div>
+    <span>APAPA <em>KINGS</em> FC</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="squad.html">Squad</a></li>
+    <li><a href="fixtures.html">Fixtures</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="sponsors.html" class="nav-cta active">Sponsor Us</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-header" data-title="SPONSORS">
+  <p class="section-label">Partnership</p>
+  <h1>SPONSORS <span>&</span> PARTNERS</h1>
+  <p>Back the Kings · Build Together</p>
+</div>
+
+<section class="section">
+
+  <!-- Pitch -->
+  <div class="sponsor-hero observe">
+    <h2>BACK THE KINGS</h2>
+    <p>Apapa Kings FC is on a six-match tour across Lagos this summer. Get your brand in front of players, fans, and communities across the city. Kings Never Settle — and neither should your marketing.</p>
+    <a href="https://wa.me/8102776552" class="btn btn-primary">Get in Touch →</a>
+  </div>
+
+  <!-- Reach Stats -->
+  <p class="section-label">Why Partner with Us</p>
+  <h2 class="section-title">YOUR REACH</h2>
+  <div class="reach-stats">
+    <div class="reach-stat observe">
+      <div class="reach-num">6</div>
+      <div class="reach-label">Matches This Season</div>
+      <div class="reach-desc">June – August 2026 tour</div>
+    </div>
+    <div class="reach-stat observe">
+      <div class="reach-num">6+</div>
+      <div class="reach-label">Venues Across Lagos</div>
+      <div class="reach-desc">Apapa, Isolo, Hopebay, Abule-Ado &amp; more</div>
+    </div>
+    <div class="reach-stat observe">
+      <div class="reach-num">∞</div>
+      <div class="reach-label">Community Presence</div>
+      <div class="reach-desc">Players, fans, families, and local communities</div>
+    </div>
+  </div>
+
+  <!-- Current Sponsors -->
+  <p class="section-label">Partners</p>
+  <h2 class="section-title">CURRENT SPONSORS</h2>
+  <div class="sponsors-wall">
+    <div class="sponsor-slot observe">
+      <img src="images/aglogo.png" alt="Assemblies of God" style="max-width:140px;" />
+        
+        <div class="sponsor-slot-label">Assemblies of God, Apapa District</div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Packages -->
+  <p class="section-label">Sponsorship Tiers</p>
+  <h2 class="section-title">PACKAGES</h2>
+  <div class="packages-grid">
+
+    <div class="pkg observe">
+      <div class="pkg-header">
+        <div class="pkg-tier">BRONZE</div>
+        <div class="pkg-price"> ₦50,000<span>/ season</span></div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-features">
+          <li>Logo on club website</li>
+          <li>Social media shoutout</li>
+         
+          <li>Certificate of partnership</li>
+        </ul>
+        <a href="https://wa.me/+2348102776552" class="btn btn-outline" style="width:100%;justify-content:center;">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="pkg featured observe">
+      <div class="pkg-header">
+        <div class="pkg-tier">SILVER</div>
+        <div class="pkg-price">₦100,000<span>/ season</span></div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-features">
+          <li>Everything in Bronze</li>
+          <li>Logo on match-day banners</li>
+          <li>Kit sleeve branding</li>
+          <li>Dedicated social media post per match</li>
+          
+        </ul>
+        <a href="https://wa.me/+2348102776552" class="btn btn-primary" style="width:100%;justify-content:center;">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="pkg observe">
+      <div class="pkg-header">
+        <div class="pkg-tier">GOLD</div>
+        <div class="pkg-price">₦200,000<span>/ season</span></div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-features">
+          <li>Everything in Silver</li>
+          <li>Main kit front branding</li>
+          <li>Title naming rights (optional)</li>
+          <li>Match naming rights</li>
+          
+                </ul>
+        <a href="https://wa.me/+2348102776552" class="btn btn-outline" style="width:100%;justify-content:center;">Enquire →</a>
+      </div>
+    </div>
+
+  </div>
+
+ 
+
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="crest"><img src="images/crest.png" alt="Apapa Kings FC" /></div>
+      <h3>APAPA KINGS FC</h3>
+      <p>Kings Never Settle</p>
+      <p class="desc">A Lagos-based football club on a mission. Playing with passion, heart, and ambition every matchday.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="squad.html">Squad</a></li>
+        <li><a href="fixtures.html">Fixtures & Results</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:contact@apapakingsfc.xyz">contact@apapakingsfc.xyz</a></li>
+        
+        <li><a href="https://www.tiktok.com/@apapa_kingsfc/">TikTok</a></li>
+        <li><a href="https://wa.me/8102776552">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Apapa Kings FC · apapakingsfc.xyz</p>
+    <div class="social-links">
+      
+      <a href="https://www.tiktok.com/@apapa_kingsfc/" class="social-link">TT</a>
+      <a href="https://wa.me/8102776552" class="social-link">WA</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  function handleSubmit(btn) {
+    btn.textContent = 'Sent! ✓';
+    btn.style.background = '#22c55e';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send Inquiry →';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  }
+</script>
+</body>
+</html>

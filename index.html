@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apapa Kings FC — Kings Never Settle</title>
+  <meta name="description" content="Apapa Kings FC — Kings Never Settle. Based in Lagos, Nigeria." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 3rem 5rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255,107,0,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(255,107,0,0.05) 0%, transparent 60%),
+        var(--black);
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,107,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,107,0,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow-line {
+      width: 40px; height: 2px;
+      background: var(--orange);
+    }
+
+    .hero-eyebrow span {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 12vw, 10rem);
+      line-height: 0.9;
+      letter-spacing: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 .line-2 {
+      color: var(--orange);
+      display: block;
+    }
+
+    .hero-slogan {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 2.5rem;
+      border-left: 3px solid var(--orange);
+      padding-left: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-crest {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(420px, 45vw);
+      height: min(420px, 45vw);
+      background: var(--orange);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.06;
+      font-family: var(--font-display);
+      font-size: min(120px, 12vw);
+      color: var(--black);
+      letter-spacing: 4px;
+      pointer-events: none;
+    }
+
+    /* ─── TICKER ─── */
+    .ticker {
+      background: var(--orange);
+      overflow: hidden;
+      padding: 0.6rem 0;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      animation: ticker 20s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      color: var(--black);
+      padding: 0 2.5rem;
+    }
+
+    .ticker-sep {
+      color: rgba(0,0,0,0.3);
+      padding: 0 0.5rem;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── NEXT MATCH ─── */
+    .next-match-section {
+      background: var(--dark-2);
+      border-top: 1px solid rgba(255,107,0,0.1);
+      border-bottom: 1px solid rgba(255,107,0,0.1);
+      padding: 4rem 3rem;
+    }
+
+    .next-match-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .next-match-meta {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+
+    .next-match-teams {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3.5rem);
+      letter-spacing: 3px;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .next-match-teams span { color: var(--orange); }
+
+    .next-match-venue {
+      font-size: 0.85rem;
+      color: var(--grey);
+      font-family: var(--font-heading);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ─── QUICK STATS ─── */
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .quick-stat {
+      padding: 2rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+    .quick-stat:last-child { border-right: none; }
+
+    .quick-stat-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--orange);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .quick-stat-label {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: 0.4rem;
+    }
+
+    /* ─── TOUR SECTION ─── */
+    .tour-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tour-section::before {
+      content: '2026';
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: 20rem;
+      color: rgba(255,107,0,0.03);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    @media (max-width: 900px) {
+      .hero { padding: 6rem 1.5rem 3rem; }
+      .hero-crest { opacity: 0.04; width: 60vw; height: 60vw; top: 15%; transform: none; }
+      .next-match-inner { grid-template-columns: 1fr; }
+      .quick-stats { grid-template-columns: repeat(2, 1fr); }
+      .quick-stat { border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .next-match-section { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="crest"><img src="images/crest.png" alt="Apapa Kings FC" /></div>
+    <span>APAPA <em>KINGS</em> FC</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="squad.html">Squad</a></li>
+    <li><a href="fixtures.html">Fixtures</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="sponsors.html" class="nav-cta">Sponsor Us</a></li>
+  </ul>
+  <div class="nav-hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-crest">AK</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="hero-eyebrow-line"></div>
+      <span>Lagos, Nigeria · Est. 2025</span>
+    </div>
+    <h1 class="fade-up fade-up-delay-1">
+      APAPA
+      <span class="line-2">KINGS FC</span>
+    </h1>
+    <p class="hero-slogan fade-up fade-up-delay-2">Kings Never Settle</p>
+    <div class="hero-actions fade-up fade-up-delay-3">
+      <a href="squad.html" class="btn btn-primary">View Squad</a>
+      <a href="fixtures.html" class="btn btn-outline">The Kings Tour →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">KINGS NEVER SETTLE</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">THE KINGS TOUR 2026</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">APAPA KINGS FC</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">SIX MATCHES · SIX MISSIONS</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">KINGS NEVER SETTLE</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">THE KINGS TOUR 2026</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">APAPA KINGS FC</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">SIX MATCHES · SIX MISSIONS</span>
+    <span class="ticker-item ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- NEXT MATCH COUNTDOWN -->
+<section class="next-match-section" id="countdown-wrap">
+  <div class="next-match-inner">
+    <div>
+      <p class="next-match-meta">⚽ Next Match</p>
+      <h2 class="next-match-teams">
+        Apapa Kings FC <span>vs</span> <span id="cd-opponent">—</span>
+      </h2>
+      <p class="next-match-venue" id="cd-venue">—</p>
+    </div>
+    <div>
+      <div class="tour-badge">Countdown</div>
+      <div class="countdown">
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-days">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-hours">00</div>
+          <div class="countdown-label">Hrs</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-mins">00</div>
+          <div class="countdown-label">Min</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-secs">00</div>
+          <div class="countdown-label">Sec</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK STATS -->
+<section class="section" style="padding-top: 3rem; padding-bottom: 3rem;">
+  <div class="quick-stats observe">
+    <div class="quick-stat">
+      <div class="quick-stat-num">6</div>
+      <div class="quick-stat-label">Tour Matches</div>
+    </div>
+    <div class="quick-stat">
+      <div class="quick-stat-num">0</div>
+      <div class="quick-stat-label">Played</div>
+    </div>
+    <div class="quick-stat">
+      <div class="quick-stat-num">0</div>
+      <div class="quick-stat-label">Goals</div>
+    </div>
+    <div class="quick-stat">
+      <div class="quick-stat-num">0</div>
+      <div class="quick-stat-label">Clean Sheets</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR FIXTURES PREVIEW -->
+<section class="section tour-section" style="padding-top: 2rem;">
+  <p class="section-label">The Kings Tour · June – August 2026</p>
+  <h2 class="section-title">MATCH SCHEDULE</h2>
+
+  <div class="fixture-card observe">
+    <div class="fixture-home">
+      <div class="fixture-matchday">Matchday 1</div>
+      <div class="fixture-date">14 June 2026</div>
+      <div class="fixture-team-name">APAPA KINGS FC</div>
+      <div class="fixture-venue">Lagos</div>
+    </div>
+    <div class="fixture-teams">
+      <div class="fixture-vs">VS</div>
+    </div>
+    <div class="fixture-away">
+      <div class="fixture-team-name">IGANMU GIANTS</div>
+      <div class="fixture-venue">GRA Marine Road Pitch</div>
+    </div>
+  </div>
+
+  <div class="fixture-card observe">
+    <div class="fixture-home">
+      <div class="fixture-matchday">Matchday 2</div>
+      <div class="fixture-date">28 June 2026</div>
+      <div class="fixture-team-name">APAPA KINGS FC</div>
+      <div class="fixture-venue">Lagos</div>
+    </div>
+    <div class="fixture-teams">
+      <div class="fixture-vs">VS</div>
+    </div>
+    <div class="fixture-away">
+      <div class="fixture-team-name">MUSHIN CENTRAL</div>
+      <div class="fixture-venue">Isolo Barracks Pitch</div>
+    </div>
+  </div>
+
+  <div class="fixture-card observe">
+    <div class="fixture-home">
+      <div class="fixture-matchday">Matchday 3</div>
+      <div class="fixture-date">11 July 2026</div>
+      <div class="fixture-team-name">APAPA KINGS FC</div>
+      <div class="fixture-venue">Lagos</div>
+    </div>
+    <div class="fixture-teams">
+      <div class="fixture-vs">VS</div>
+    </div>
+    <div class="fixture-away">
+      <div class="fixture-team-name">IGANMU TEAM</div>
+      <div class="fixture-venue">Hopebay Stadium</div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 2.5rem;">
+    <a href="fixtures.html" class="btn btn-outline">View Full Schedule →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="crest"><img src="images/crest.png" alt="Apapa Kings FC" /></div>
+      <h3>APAPA KINGS FC</h3>
+      <p>Kings Never Settle</p>
+      <p class="desc">A Lagos-based football club on a mission. Playing with passion, heart, and ambition every matchday.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="squad.html">Squad</a></li>
+        <li><a href="fixtures.html">Fixtures & Results</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:contact@apapakingsfc.xyz">info@apapakingsfc.xyz</a></li>
+        
+        <li><a href="https://www.tiktok.com/@apapa_kingsfc/">Tiktok</a></li>
+        <li><a href="https://wa.me/8102776552">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Apapa Kings FC · apapakingsfc.xyz · All rights reserved</p>
+    <div class="social-links">
+      
+      <a href="https://www.tiktok.com/@apapa_kingsfc/" class="social-link">TT</a>
+      <a href="https://wa.me/8102776552" class="social-link">WA</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
