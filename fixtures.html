@@ -368,7 +368,7 @@
         </div>
         <div class="away-side">
           <div class="fixture-date-lg">AWAY</div>
-          <div class="fixture-team-lg">IGANMU TEAM</div>
+          <div class="fixture-team-lg">BRAVE HEARTS</div>
         </div>
       </div>
       <div class="fixture-full-footer">
@@ -499,24 +499,27 @@
     });
   });
 
-  // Mini countdown for matchday 1
-  const md1 = new Date('2026-06-14T10:00:00');
+  // Mini countdown — reads from the fixtures array defined in main.js
+  // So you only ever need to update main.js and both pages sync automatically
   const mc1 = document.getElementById('mc-1');
-  if (mc1 && new Date() < md1) {
-    mc1.innerHTML = `
-      <div class="mini-cd-unit"><div class="mini-cd-num" id="m1d">00</div><div class="mini-cd-label">D</div></div>
-      <div class="mini-cd-sep">:</div>
-      <div class="mini-cd-unit"><div class="mini-cd-num" id="m1h">00</div><div class="mini-cd-label">H</div></div>
-      <div class="mini-cd-sep">:</div>
-      <div class="mini-cd-unit"><div class="mini-cd-num" id="m1m">00</div><div class="mini-cd-label">M</div></div>
-    `;
-    setInterval(() => {
-      const diff = md1 - new Date();
-      if (diff <= 0) return;
-      document.getElementById('m1d').textContent = String(Math.floor(diff/86400000)).padStart(2,'0');
-      document.getElementById('m1h').textContent = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
-      document.getElementById('m1m').textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
-    }, 1000);
+  if (mc1 && typeof fixtures !== 'undefined') {
+    const nextFixture = fixtures.find(f => f.date > new Date());
+    if (nextFixture && mc1) {
+      mc1.innerHTML = `
+        <div class="mini-cd-unit"><div class="mini-cd-num" id="m1d">00</div><div class="mini-cd-label">D</div></div>
+        <div class="mini-cd-sep">:</div>
+        <div class="mini-cd-unit"><div class="mini-cd-num" id="m1h">00</div><div class="mini-cd-label">H</div></div>
+        <div class="mini-cd-sep">:</div>
+        <div class="mini-cd-unit"><div class="mini-cd-num" id="m1m">00</div><div class="mini-cd-label">M</div></div>
+      `;
+      setInterval(() => {
+        const diff = nextFixture.date - new Date();
+        if (diff <= 0) return;
+        document.getElementById('m1d').textContent = String(Math.floor(diff/86400000)).padStart(2,'0');
+        document.getElementById('m1h').textContent = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+        document.getElementById('m1m').textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+      }, 1000);
+    }
   }
 </script>
 </body>
