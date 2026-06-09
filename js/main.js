@@ -70,8 +70,8 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 
 // ─── COUNTDOWN TO NEXT FIXTURE ───
 const fixtures = [
-  { date: new Date('2026-06-14T15:00:00'), opponent: 'Iganmu Giants', venue: 'GRA Marine Road Pitch' },
-  { date: new Date('2026-06-28T15:00:00'), opponent: 'Mushin Central', venue: 'Isolo Barracks Pitch' },
+  { date: new Date('2026-06-14T15:30:00'), opponent: 'Iganmu Giants', venue: 'GRA Marine Road Pitch' },
+  { date: new Date('2026-06-28T15:30:00'), opponent: 'Mushin Central', venue: 'Isolo Barracks Pitch' },
   { date: new Date('2026-07-11T15:00:00'), opponent: 'Iganmu Team', venue: 'Hopebay Stadium' },
   { date: new Date('2026-07-19T15:00:00'), opponent: 'Recovery House', venue: '721 Field' },
   { date: new Date('2026-08-08T15:00:00'), opponent: 'Catholic Church', venue: '721 Field' },
