@@ -242,9 +242,388 @@
 
     .newsletter-input button:hover { background: var(--orange-light); }
 
+    /* ── ARTICLE SYSTEM ── */
+    .news-article {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .news-article:hover { border-color: rgba(255,107,0,0.25); }
+
+    .featured-article { border-left: 4px solid var(--orange); }
+
+    .article-img-wrap {
+      width: 100%;
+      padding-top: 42%;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255,107,0,0.1), var(--dark-3));
+    }
+
+    .article-img-wrap.small {
+      padding-top: 28%;
+    }
+
+    .article-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .news-article:hover .article-img { transform: scale(1.03); }
+
+    .article-img-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .aph-icon { font-size: 2.5rem; opacity: 0.15; }
+    .aph-label {
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .article-tag-badge {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: var(--orange);
+      color: var(--black);
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+    }
+
+    .article-body {
+      padding: 1.75rem 2rem 2rem;
+      border-top: 3px solid var(--orange);
+    }
+
+    .article-meta {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 0.6rem;
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      letter-spacing: 2px;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+
+    .article-excerpt {
+      font-size: 0.9rem;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Full article body — hidden until expanded */
+    .article-full-body {
+      display: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 1.25rem;
+      margin-bottom: 1.25rem;
+      animation: fadeUp 0.3s ease forwards;
+    }
+
+    .article-full-body p {
+      font-size: 0.9rem;
+      color: var(--grey);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .article-full-body p:last-child { margin-bottom: 0; }
+
+    .article-full-body strong { color: var(--white); }
+
+    .article-full-body.open { display: block; }
+
+    /* Read More button */
+    .read-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: transparent;
+      border: 1px solid rgba(255,107,0,0.3);
+      padding: 0.5rem 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .read-more-btn:hover {
+      background: var(--orange);
+      color: var(--black);
+      border-color: var(--orange);
+    }
+
+    .read-more-btn.expanded {
+      color: var(--grey);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .read-more-btn.expanded:hover {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.3);
+    }
+
     @media (max-width: 900px) {
       .news-layout { grid-template-columns: 1fr; }
       .news-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── PHOTO GRID ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .photo-thumb {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark-3);
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .photo-thumb:hover {
+      border-color: rgba(255,107,0,0.4);
+      transform: translateY(-3px);
+    }
+
+    .photo-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.4s ease;
+    }
+
+    .photo-thumb:hover img { transform: scale(1.06); }
+
+    .photo-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--dark-3), rgba(255,107,0,0.05));
+    }
+
+    .photo-placeholder .ph-icon { font-size: 2.5rem; opacity: 0.15; }
+    .photo-placeholder .ph-text {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .photo-caption-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+      padding: 1.5rem 0.9rem 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .photo-thumb:hover .photo-caption-bar { opacity: 1; }
+
+    .photo-caption-bar span {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .zoom-icon {
+      font-size: 1rem !important;
+      color: var(--orange) !important;
+      letter-spacing: 0 !important;
+    }
+
+    /* ── LIGHTBOX ── */
+    .nlb {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .nlb.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nlb-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.93);
+      backdrop-filter: blur(6px);
+    }
+
+    .nlb-stage {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 88vw;
+      max-height: 85vh;
+    }
+
+    #nlbImg {
+      max-width: 88vw;
+      max-height: 78vh;
+      object-fit: contain;
+      display: none;
+      border: 2px solid rgba(255,107,0,0.25);
+      transform: scale(0.92);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+      opacity: 0;
+    }
+
+    .nlb.open #nlbImg.loaded {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .nlb-placeholder {
+      width: min(600px, 80vw);
+      height: min(420px, 60vh);
+      background: var(--dark-2);
+      border: 1px solid rgba(255,107,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      transform: scale(0.92);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .nlb.open .nlb-placeholder { transform: scale(1); }
+
+    .nlb-caption {
+      margin-top: 0.75rem;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+    }
+
+    .nlb-close {
+      position: fixed;
+      top: 1.25rem; right: 1.5rem;
+      z-index: 10;
+      width: 42px; height: 42px;
+      background: var(--orange);
+      color: var(--black);
+      border: none;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nlb-close:hover { background: var(--orange-light); transform: scale(1.1); }
+
+    .nlb-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 46px; height: 46px;
+      background: rgba(255,107,0,0.15);
+      border: 1px solid rgba(255,107,0,0.35);
+      color: var(--white);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .nlb-arrow:hover { background: rgba(255,107,0,0.35); }
+    .nlb-prev { left: 1rem; }
+    .nlb-next { right: 1rem; }
+
+    .nlb-counter {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.35);
+      z-index: 10;
+    }
+
+    @media (max-width: 600px) {
+      .photo-grid { grid-template-columns: 1fr; }
+      .nlb-arrow { display: none; }
     }
   </style>
 </head>
@@ -275,90 +654,211 @@
 <section class="section">
   <div class="news-layout">
 
-   <!-- MAIN CONTENT -->
+    <!-- MAIN CONTENT -->
     <div>
       <!-- Category Filter / Tabs -->
       <div class="category-filter">
-        <button class="cat-btn active" data-section="news-content">All News</button>
-        
+        <button class="cat-btn active" data-section="news-content" data-filter="all">All News</button>
+        <button class="cat-btn" data-section="news-content" data-filter="Match Report">Match Reports</button>
+        <button class="cat-btn" data-section="news-content" data-filter="Club News">Club News</button>
+        <button class="cat-btn" data-section="news-content" data-filter="Training">Training</button>
+        <button class="cat-btn" data-section="photos-content" data-filter="photos">📸 Photos</button>
       </div>
 
       <!-- NEWS CONTENT -->
       <div id="news-content">
 
-      <!-- Featured Article -->
-      <div class="news-featured observe">
-        <div class="news-featured-img">
-          <!-- TO ADD A REAL PHOTO: replace this whole div with:
-               <img src="images/match1.jpg" alt="Match vs recovery House" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
-               Then delete the news-featured-img-inner div below -->
-          <img src="images/match1.jpg" alt="Match vs recovery House" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
-            <div class="big-icon">⚽</div>
-            
+      <!--
+      HOW TO ADD A NEW ARTICLE:
+      1. Copy one full <article class="news-article"> block
+      2. Paste it ABOVE the existing ones (newest first)
+      3. Fill in: data-tag, data-date, headline, excerpt, full body text
+      4. Replace the placeholder div with an img tag for a real photo
+      Read More expands inline — no separate pages needed.
+      -->
+
+      <!-- ARTICLE 1 (Featured) -->
+      <article class="news-article featured-article observe" data-tag="Announcement" data-date="4 June 2026">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder">
+            <span class="aph-icon">⚽</span>
+            <img src="images/match1.jpg" alt="Match vs recovery House" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
           </div>
-          <div class="featured-tag">Announcement</div>
+          <div class="article-tag-badge">Announcement</div>
         </div>
-        <div class="news-featured-body">
-          <div class="date">4 June 2026</div>
-          <h2>THE KINGS TOUR 2026 IS HERE</h2>
-          <p>Apapa Kings FC announces a historic six-match tour running from June through August 2026. Facing opponents across Lagos — from Iganmu Giants to Rising Stars FC — the Kings are ready to prove their standard on every pitch they step on. Kings Never Settle.</p>
-          <a href="#" class="btn btn-primary">Read More →</a>
+        <div class="article-body">
+          <div class="article-meta">4 June 2026</div>
+          <h2 class="article-title">THE KINGS TOUR 2026 IS HERE</h2>
+          <p class="article-excerpt">Apapa Kings FC announces a historic six-match tour running from June through August 2026 — six opponents, six pitches, one standard.</p>
+          <div class="article-full-body">
+            <p>The Kings Tour 2026 is officially underway. Apapa Kings FC will face six opponents across Lagos between June and August, starting with Iganmu Giants on 14 June at GRA Marine Road Pitch.</p>
+            <p>The tour takes the Kings to Isolo Barracks, Hopebay Stadium, 721 Field, and Abule-Ado Field before wrapping up on 16 August against Rising Stars FC.</p>
+            <p>This tour is about more than results. It is about building the club identity, establishing presence across the city, and showing Lagos what Apapa Kings FC is made of.</p>
+            <p><strong>Kings Never Settle.</strong></p>
+          </div>
+          <button class="read-more-btn" onclick="toggleArticle(this)">Read More &#8594;</button>
         </div>
+      </article>
+
+      <!-- ARTICLE 2 -->
+      <article class="news-article observe" data-tag="Club News" data-date="4 June 2026">
+        <div class="article-img-wrap small">
+          <div class="article-img-placeholder">
+            <span class="aph-icon">&#9917;</span>
+            <span class="aph-label"><img src="images/match3.jpg" alt="Match vs recovery House" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" /></span>
+          </div>
+          <div class="article-tag-badge">Club News</div>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">4 June 2026</div>
+          <h2 class="article-title">Friendly Match Preview: Kings vs Recovery House</h2>
+          <p class="article-excerpt">The Kings gear up for their opening match of the tour on 14 June at GRA Marine Road Pitch.</p>
+          <div class="article-full-body">
+            <p>The Kings Tour begins on 14 June at GRA Marine Road Pitch as Apapa Kings FC take on Iganmu Giants in Matchday 1.</p>
+            <p>The squad has been training hard and the mood in camp is confident. Expect a fast, physical game.</p>
+            <p>Come out and support the Kings. Kings Never Settle.</p>
+          </div>
+          <button class="read-more-btn" onclick="toggleArticle(this)">Read More &#8594;</button>
+        </div>
+      </article>
+
+      <!-- ARTICLE 3 -->
+      <article class="news-article observe" data-tag="Training" data-date="3 June 2026">
+        <div class="article-img-wrap small">
+          <div class="article-img-placeholder">
+            <span class="aph-icon">&#127939;</span>
+            <span class="aph-label"><img src="images/match6.jpg" alt="Pre Tour Training" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" /></span>
+          </div>
+          <div class="article-tag-badge">Training</div>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">3 June 2026</div>
+          <h2 class="article-title">PRE-TOUR TRAINING CAMP UNDERWAY</h2>
+          <p class="article-excerpt">Sessions are intense, the squad is sharp, and the spirit is high ahead of the Kings Tour.</p>
+          <div class="article-full-body">
+            <p>Pre-tour preparations are in full swing. The squad has been putting in serious work — fitness drills, set pieces, and tactical sessions are all part of the daily routine.</p>
+            <p>The coaching staff is pleased with the commitment and focus. Every player knows what the Kings Tour means for the club.</p>
+            <p>Expect a sharp, well-drilled team on Matchday 1.</p>
+          </div>
+          <button class="read-more-btn" onclick="toggleArticle(this)">Read More &#8594;</button>
+        </div>
+      </article>
+
+      <!-- ARTICLE 4 -->
+      <article class="news-article observe" data-tag="Announcement" data-date="1 June 2026">
+        <div class="article-img-wrap small">
+          <div class="article-img-placeholder">
+            <span class="aph-icon">&#127760;</span>
+            <span class="aph-label"><img src="images/image11.png" alt="Website is Live" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" /></span>
+          </div>
+          <div class="article-tag-badge">Announcement</div>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">1 June 2026</div>
+          <h2 class="article-title">WEBSITE LAUNCH: APAPAKINGSFC.XYZ IS LIVE</h2>
+          <p class="article-excerpt">Apapa Kings FC officially goes digital. Follow all fixtures, squad updates, and club news right here.</p>
+          <div class="article-full-body">
+            <p>Apapa Kings FC is proud to launch its official website at apapakingsfc.xyz — featuring the full Kings Tour 2026 schedule, squad profiles, results, news, gallery, and sponsorship information.</p>
+            <p>We will be updating the site after every match with results, reports, and photos. Bookmark the page and follow us on social media.</p>
+            <p>Kings Never Settle.</p>
+          </div>
+          <button class="read-more-btn" onclick="toggleArticle(this)">Read More &#8594;</button>
+        </div>
+      </article>
+
+      </div><!-- end #news-content -->
+
+      <!-- PHOTOS CONTENT (hidden by default, shown when Photos tab clicked) -->
+      <div id="photos-content" style="display:none;">
+        <p style="font-family:var(--font-heading);font-size:0.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem;">Match &amp; Training Photos</p>
+
+        <!--
+        ═══════════════════════════════════════════════════════
+        HOW TO ADD A REAL PHOTO WITH ZOOM (LIGHTBOX):
+
+        1. Save your image file into the apapa-kings/images/ folder
+           e.g. match1.jpg, training2.jpg
+
+        2. Copy ONE of the photo blocks below (from <!-- PHOTO to end of its closing </div></div> )
+
+        3. In the copied block, change TWO things:
+           a) data-src="images/YOURPHOTO.jpg"   ← your actual file name
+           b) The caption text inside the <span> at the bottom
+
+        4. If you have a real image, ALSO replace the placeholder <div> inside
+           with an <img> tag like this:
+           <img src="images/YOURPHOTO.jpg" alt="caption" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
+
+        Click any photo to open the fullscreen lightbox.
+        Use arrow buttons or keyboard ← → to navigate. Press Escape or X to close.
+        ═══════════════════════════════════════════════════════
+        -->
+
+        <div class="photo-grid" id="newsPhotoGrid">
+
+          <!-- PHOTO 1 — Training Session -->
+          <div class="photo-thumb" data-src="images/match7.jpg" data-caption="Training Session">
+            <!-- PLACEHOLDER — delete this div and add <img> when you have a real photo -->
+            <div class="photo-placeholder">
+              <span class="ph-icon">📸</span>
+              <span class="ph-text"><img src="images/match7.jpg" alt="caption" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" /></span>
+            </div>
+            <!-- END PLACEHOLDER -->
+            <div class="photo-caption-bar"><span>Training Session</span><span class="zoom-icon">⤢</span></div>
+          </div>
+
+          <!-- PHOTO 2 — The Squad -->
+          <div class="photo-thumb" data-src="images/match4.jpg" data-caption="The Squad">
+            <div class="photo-placeholder">
+              <span class="ph-icon">📸</span>
+              <span class="ph-text"><img src="images/match4.jpg" alt="caption" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" /></span>
+            </div>
+            <div class="photo-caption-bar"><span>The Squad</span><span class="zoom-icon">⤢</span></div>
+          </div>
+
+          <!-- PHOTO 3 — Matchday -->
+          <div class="photo-thumb" data-src="images/match1.jpg" data-caption="Matchday vs Iganmu Giants">
+            <div class="photo-placeholder">
+              <span class="ph-icon">📸</span>
+              <span class="ph-text"><img src="images/match1.jpg" alt="caption" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" /></span>
+            </div>
+            <div class="photo-caption-bar"><span>Matchday vs Iganmu Giants</span><span class="zoom-icon">⤢</span></div>
+          </div>
+
+          <!-- PHOTO 4 — Behind the Scenes -->
+          <div class="photo-thumb" data-src="images/match2.jpg" data-caption="Behind the Scenes">
+            <div class="photo-placeholder">
+              <span class="ph-icon">📸</span>
+              <span class="ph-text"><img src="images/match2.jpg" alt="caption" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" /></span>
+            </div>
+            <div class="photo-caption-bar"><span>Behind the Scenes</span><span class="zoom-icon">⤢</span></div>
+          </div>
+
+        
+
+        </div><!-- end .photo-grid -->
+
+        <div style="margin-top:1.5rem;text-align:center;">
+          <a href="gallery.html" class="btn btn-outline">Full Gallery →</a>
+        </div>
+      </div><!-- end #photos-content -->
+
+      <!-- ═══ LIGHTBOX ═══ -->
+      <div id="newsLightbox" class="nlb" aria-hidden="true">
+        <div class="nlb-backdrop"></div>
+        <button class="nlb-close" id="nlbClose" aria-label="Close">✕</button>
+        <button class="nlb-arrow nlb-prev" id="nlbPrev" aria-label="Previous">&#8592;</button>
+        <button class="nlb-arrow nlb-next" id="nlbNext" aria-label="Next">&#8594;</button>
+        <div class="nlb-stage">
+          <img id="nlbImg" src="" alt="" />
+          <div class="nlb-placeholder" id="nlbPlaceholder">
+            <span style="font-size:4rem;opacity:0.15;">📸</span>
+            <span style="font-family:var(--font-heading);font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--grey);">Photo preview</span>
+          </div>
+          <div class="nlb-caption" id="nlbCaption"></div>
+        </div>
+        <div class="nlb-counter" id="nlbCounter"></div>
       </div>
-
-      <!-- News Grid -->
-      <div class="news-grid">
-
-        <div class="news-card observe">
-          <div class="news-img">
-             <img src="images/match3.jpg" alt="Match vs recovery House" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
-            <div class="news-tag">Club News</div>
-          </div>
-          <div class="news-body">
-            <div class="news-date">31 May 2026</div>
-            <div class="news-title">Friendly Match Preview: Kings vs Recovery House</div>
-            <div class="news-excerpt">The Kings gear up for their opening match of the tour on 14 June at GRA Marine Road Pitch. Everything you need to know ahead of kickoff.</div>
-          </div>
-        </div>
-
-        <div class="news-card observe">
-          <div class="news-img">
-             <img src="images/match6.jpg" alt="Pre Tour Training" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
-            <div class="news-tag">Training</div>
-          </div>
-          <div class="news-body">
-            <div class="news-date">3 June 2026</div>
-            <div class="news-title">Pre-Tour Training Camp Underway</div>
-            <div class="news-excerpt">The squad has been putting in the hard work ahead of the Kings Tour. Sessions are intense, the squad is sharp, and the spirit is high.</div>
-          </div>
-        </div>
-
-        <div class="news-card observe">
-          <div class="news-img">
-            <img src="images/match22.jpg" alt="Website is Live" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
-            <div class="news-tag">Announcement</div>
-          </div>
-          <div class="news-body">
-            <div class="news-date">1 June 2026</div>
-            <div class="news-title">Website Launch: apapakingsfc.xyz is Live</div>
-            <div class="news-excerpt">Apapa Kings FC officially goes digital. Follow all fixtures, squad updates, and club news right here at apapakingsfc.xyz.</div>
-          </div>
-        </div>
-
-        <div class="news-card observe">
-          <div class="news-img">
-            <div class="news-img-inner">🤝</div>
-            <div class="news-tag">Sponsors</div>
-          </div>
-          <div class="news-body">
-            <div class="news-date">30 May 2026</div>
-            <div class="news-title">Sponsorship Opportunities Now Open</div>
-            <div class="news-excerpt">We're looking for businesses and individuals ready to back the Kings. Get your brand seen across Lagos this summer.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
 
     <!-- SIDEBAR -->
     <div>
@@ -385,6 +885,8 @@
         </div>
       </div>
 
+      
+
       <!-- Tour Badge -->
       <div class="sidebar-block observe" style="padding:1.5rem;text-align:center;background:linear-gradient(135deg,rgba(255,107,0,0.08),var(--dark-2));">
         <div style="font-family:var(--font-display);font-size:3rem;color:rgba(255,107,0,0.2);line-height:1;margin-bottom:0.5rem;">2026</div>
@@ -402,7 +904,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="crest"><img src="images/crest.png" alt="Apapa Kings FC" /></div>
+      <div class="crest-lg"><img src="images/crest.png" alt="Apapa Kings FC" /></div>
       <h3>APAPA KINGS FC</h3>
       <p>Kings Never Settle</p>
       <p class="desc">A Lagos-based football club on a mission. Playing with passion, heart, and ambition every matchday.</p>
@@ -421,8 +923,8 @@
     <div class="footer-links">
       <h4>Contact</h4>
       <ul>
-        <li><a href="mailto:contact@apapakingsfc.xyz">info@apapakingsfc.xyz</a></li>
-   
+        <li><a href="mailto:contact@apapakingsfc.xyz">contact@apapakingsfc.xyz</a></li>
+        
         <li><a href="https://www.tiktok.com/@apapa_kingsfc/">TikTok</a></li>
         <li><a href="https://wa.me/8102776552">WhatsApp</a></li>
       </ul>
@@ -440,12 +942,166 @@
 
 <script src="js/main.js"></script>
 <script>
-  // Category filter (visual only for now)
+  // ── TAB SWITCHING + FILTER ──
   document.querySelectorAll('.cat-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
+      const section = btn.dataset.section;
+      const filter  = btn.dataset.filter || 'all';
+
+      if (section === 'photos-content') {
+        document.getElementById('news-content').style.display = 'none';
+        document.getElementById('photos-content').style.display = 'block';
+        return;
+      }
+
+      // Show news content, hide photos
+      document.getElementById('news-content').style.display = 'block';
+      document.getElementById('photos-content').style.display = 'none';
+
+      // Filter articles by tag
+      document.querySelectorAll('.news-article').forEach(article => {
+        const tag = article.dataset.tag || '';
+        if (filter === 'all' || tag === filter) {
+          article.style.display = 'block';
+        } else {
+          article.style.display = 'none';
+        }
+      });
     });
+  });
+
+  // ── READ MORE / COLLAPSE ──
+  function toggleArticle(btn) {
+    const article = btn.closest('.news-article');
+    const fullBody = article.querySelector('.article-full-body');
+    const isOpen = fullBody.classList.contains('open');
+
+    if (isOpen) {
+      fullBody.classList.remove('open');
+      btn.textContent = 'Read More →';
+      btn.classList.remove('expanded');
+      // Smooth scroll back to article top
+      article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      fullBody.classList.add('open');
+      btn.textContent = 'Read Less ↑';
+      btn.classList.add('expanded');
+    }
+  }
+
+  // ── LIGHTBOX ──
+  const lb        = document.getElementById('newsLightbox');
+  const lbImg     = document.getElementById('nlbImg');
+  const lbPh      = document.getElementById('nlbPlaceholder');
+  const lbCaption = document.getElementById('nlbCaption');
+  const lbCounter = document.getElementById('nlbCounter');
+  const lbClose   = document.getElementById('nlbClose');
+  const lbPrev    = document.getElementById('nlbPrev');
+  const lbNext    = document.getElementById('nlbNext');
+
+  let photos = [];   // [{src, caption}]
+  let current = 0;
+
+  // Build photo list from the grid on page load
+  function buildPhotoList() {
+    photos = Array.from(document.querySelectorAll('.photo-thumb')).map(el => ({
+      src: el.dataset.src || '',
+      caption: el.dataset.caption || ''
+    }));
+  }
+
+  function openLightbox(index) {
+    buildPhotoList();
+    current = index;
+    lb.setAttribute('aria-hidden', 'false');
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    showPhoto(current);
+  }
+
+  function closeLightbox() {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    // reset image for next open
+    setTimeout(() => {
+      lbImg.classList.remove('loaded');
+      lbImg.style.display = 'none';
+      lbPh.style.display = 'flex';
+    }, 300);
+  }
+
+  function showPhoto(index) {
+    const p = photos[index];
+    lbCaption.textContent = p.caption;
+    lbCounter.textContent = `${index + 1} / ${photos.length}`;
+
+    // Reset
+    lbImg.classList.remove('loaded');
+    lbImg.style.display = 'none';
+    lbPh.style.display = 'flex';
+
+    if (p.src && p.src !== '') {
+      const tmp = new Image();
+      tmp.onload = () => {
+        lbImg.src = p.src;
+        lbImg.alt = p.caption;
+        lbImg.style.display = 'block';
+        lbPh.style.display = 'none';
+        // Trigger zoom-in animation
+        requestAnimationFrame(() => lbImg.classList.add('loaded'));
+      };
+      tmp.onerror = () => {
+        // Image not found — keep placeholder visible
+        lbPh.style.display = 'flex';
+        lbImg.style.display = 'none';
+      };
+      tmp.src = p.src;
+    }
+
+    // Arrow visibility
+    lbPrev.style.opacity = index === 0 ? '0.3' : '1';
+    lbNext.style.opacity = index === photos.length - 1 ? '0.3' : '1';
+  }
+
+  function prev() {
+    if (current > 0) { current--; showPhoto(current); }
+  }
+
+  function next() {
+    if (current < photos.length - 1) { current++; showPhoto(current); }
+  }
+
+  // Attach click to each photo thumb
+  document.querySelectorAll('.photo-thumb').forEach((el, i) => {
+    el.addEventListener('click', () => openLightbox(i));
+  });
+
+  // Controls
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', prev);
+  lbNext.addEventListener('click', next);
+
+  // Click backdrop to close
+  document.querySelector('.nlb-backdrop').addEventListener('click', closeLightbox);
+
+  // Keyboard
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   prev();
+    if (e.key === 'ArrowRight')  next();
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
   });
 </script>
 </body>
