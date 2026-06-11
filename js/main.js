@@ -60,19 +60,20 @@ if (hamburger) {
 }
 
 // ─── ACTIVE NAV ───
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const path = window.location.pathname.replace(/\/$/, '').split('/').pop() || '';
 document.querySelectorAll('.nav-links a').forEach(a => {
-  const href = a.getAttribute('href');
-  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+  const href = a.getAttribute('href').replace(/^\//, '').replace(/\/$/, '');
+  const current = path.replace('.html', '');
+  if ((current === '' && href === '') || (href && current === href)) {
     a.classList.add('active');
   }
 });
 
 // ─── COUNTDOWN TO NEXT FIXTURE ───
 const fixtures = [
-  { date: new Date('2026-06-14T15:30:00'), opponent: 'Brave Hearts', venue: 'Signal Barracks Pitch, Mile 2' },
+  { date: new Date('2026-06-14T10:00:00'), opponent: 'Iganmu Giants', venue: 'GRA Marine Road Pitch' },
   { date: new Date('2026-06-28T10:00:00'), opponent: 'Mushin Central', venue: 'Isolo Barracks Pitch' },
-  { date: new Date('2026-07-11T10:00:00'), opponent: 'Iganmu Team', venue: 'GRA Marine Road Pitch' },
+  { date: new Date('2026-07-11T10:00:00'), opponent: 'Iganmu Team', venue: 'Hopebay Stadium' },
   { date: new Date('2026-07-19T10:00:00'), opponent: 'Recovery House', venue: '721 Field' },
   { date: new Date('2026-08-08T10:00:00'), opponent: 'Catholic Church', venue: '721 Field' },
   { date: new Date('2026-08-16T10:00:00'), opponent: 'Rising Stars FC', venue: 'Abule-Ado Field' },
