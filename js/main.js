@@ -74,7 +74,7 @@ const fixtures = [
   { date: new Date('2026-06-14T10:00:00'), opponent: 'Iganmu Giants', venue: 'GRA Marine Road Pitch' },
   { date: new Date('2026-06-28T10:00:00'), opponent: 'Mushin Central', venue: 'Isolo Barracks Pitch' },
     { date: new Date('2026-07-19T10:00:00'), opponent: 'Recovery House', venue: '721 Field' },
-  { date: new Date('2026-08-08T10:00:00'), opponent: 'Catholic Church', venue: '721 Field' },
+  { date: new Date('2026-02-08T10:00:00'), opponent: 'Catholic Church', venue: '721 Field' },
   { date: new Date('2026-08-16T10:00:00'), opponent: 'Rising Stars FC', venue: 'Abule-Ado Field' },
 ];
 
