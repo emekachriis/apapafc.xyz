@@ -421,7 +421,7 @@ nav.scrolled {
   top: 1rem; right: 1rem;
   font-family: var(--font-display);
   font-size: 3.5rem;
-  color: rgba(255,107,0,0.2);
+  color: rgba(255,140,0,1.0);
   line-height: 1;
 }
 
