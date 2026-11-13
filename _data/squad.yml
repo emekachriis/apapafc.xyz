@@ -135,6 +135,7 @@ players:
     name: Buchi
     position: Central Mid
     position_group: MID
+    photo: images/players/buchi.jpg
 
   # ── Forwards ──
   - number: 9
