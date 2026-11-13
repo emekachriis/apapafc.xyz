@@ -17,6 +17,6 @@ Chris put the Kings in front on 15 minutes before Bright levelled for Tolu FC on
 
 **Starting lineup:** Amaechi, Praise, Benjamin, Chibuzor, Adeleke, Ola, Divine, Joseph, Wisdom
 
-**Subs:** Charles, Chris, David, Emeka, Ifeanyi
+**Subs:** Charles, Chris, David, Ifeanyi
 
 Kings Never Settle.
