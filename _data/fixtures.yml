@@ -12,6 +12,7 @@
 #             Leave score out for a match that hasn't been played yet.
 #             It then becomes the "Next match" on the home page.
 #  type:      optional label, defaults to "Friendly"
+#  crest:     optional, the other team's badge, e.g. images/opponents/somebody.jpg
 #
 #  To link a match report, give the news post  match: "YYYY-MM-DD"
 #  (the same date as the fixture). See README.
@@ -64,13 +65,14 @@
 
 - date: 2026-10-25
   opponent: Brave Hearts
-  home: true
+  home: false
   venue: Signal Barracks Pitch, Mile 2
   score: "4-3"
 
 - date: 2026-11-14
   kickoff: "16:00"
-  opponent: Skyworld Academy
+  opponent: Skyworld FC
+  crest: images/opponents/skyworld.jpg
   home: false
   venue: FHA Festac
 

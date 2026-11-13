@@ -1,11 +1,11 @@
 ---
-title: "Next up: Skyworld Academy in Festac"
+title: "Next up: Skyworld FC in Festac"
 kind: club-news
 image: /images/photos/skyworld-academy-preview.jpg
 image_alt: "Match poster: Skyworld Academy vs Apapa Kings, 14 November 2026, 4pm, FHA Festac"
-description: Apapa Kings FC face Skyworld Academy on Saturday 14 November 2026, 4:00pm at FHA Festac.
+description: Apapa Kings FC face Skyworld FC on Saturday 14 November 2026, 4:00pm at FHA Festac.
 ---
-The Kings are back in action this weekend against Skyworld Academy.
+The Kings are back in action this weekend against Skyworld FC.
 
 - **Date:** Saturday 14 November 2026
 - **Kick-off:** 4:00pm
