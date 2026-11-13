@@ -15,12 +15,17 @@ players:
 
   # ── Goalkeepers ──
   - number: 1
-    name: Sochima
+    name: Amaechi
     position: Goalkeeper
     position_group: GK
 
   - number: 13
-    name: Amaechi
+    name: Ebuka
+    position: Goalkeeper
+    position_group: GK
+
+  - number: 99
+    name: Bobo
     position: Goalkeeper
     position_group: GK
 
@@ -38,7 +43,7 @@ players:
     photo: images/players/christian.jpg
 
   - number: 4
-    name: Ericki
+    name: Alakhumen
     position: Left Back
     position_group: DEF
 
@@ -48,25 +53,35 @@ players:
     position_group: DEF
     photo: images/players/benjamin.jpg
 
-  - number: 6
-    name: Chizurum
-    position: Centre Back / Defensive Mid
-    position_group: DEF
-
   - number: 17
     name: Chibuzor
     position: Centre Back
     position_group: DEF
     photo: images/players/chibuzor.jpg
 
-  - number: 18
-    name: Benson
-    position: Left Back
-    position_group: DEF
-
   - number: 24
     name: Samuel
     position: Centre Back
+    position_group: DEF
+
+  - number:            # shirt number to come
+    name: Diamond
+    position: Defender
+    position_group: DEF
+
+  - number:            # shirt number to come
+    name: Praise
+    position: Defender
+    position_group: DEF
+
+  - number:            # shirt number to come
+    name: Ifeanyi
+    position: Defender
+    position_group: DEF
+
+  - number:            # shirt number to come
+    name: GD
+    position: Defender
     position_group: DEF
 
   # ── Midfielders ──
@@ -75,11 +90,6 @@ players:
     position: Attacking Mid
     position_group: MID
     photo: images/players/francis.jpg
-
-  - number: 8
-    name: Arthur
-    position: Central Mid
-    position_group: MID
 
   - number: 10
     name: Joseph
@@ -105,11 +115,6 @@ players:
     position_group: MID
     photo: images/players/pascal.jpg
 
-  - number: 20
-    name: Alike
-    position: Attacking Mid
-    position_group: MID
-
   - number: 21
     name: Charles
     position: Central Mid
@@ -119,6 +124,16 @@ players:
   - number: 22
     name: Divine
     position: Attacking Mid
+    position_group: MID
+
+  - number:            # shirt number to come
+    name: Adeleke
+    position: Midfielder
+    position_group: MID
+
+  - number:            # shirt number to come
+    name: Buchi
+    position: Midfielder
     position_group: MID
 
   # ── Forwards ──
@@ -140,15 +155,15 @@ players:
     position_group: FWD
     photo: images/players/aboy.jpg
 
-  - number: 16
-    name: Genesis
-    position: Striker
-    position_group: FWD
-
   - number: 23
     name: Goodness
     position: Left Winger
     position_group: FWD
+  - number:            # shirt number to come
+    name: Wale
+    position: Forward
+    position_group: FWD
+
 
 
 # ─────────────────────────────────────────────────────────────
@@ -156,7 +171,7 @@ players:
 # ─────────────────────────────────────────────────────────────
 
 staff:
-  - name: Nwell
+  - name: Arthur
     role: Head Coach
 
   - name: Raphael

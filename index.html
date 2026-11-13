@@ -100,7 +100,7 @@ description: Apapa Kings FC, a street football club from Lagos, Nigeria. Est. 20
     </div>
   </div>
   <ul class="player-rail" tabindex="0" aria-label="Players, scroll sideways">
-    {%- assign rail = site.data.squad.players | where_exp: "p", "p.photo" | sort: "number" -%}
+    {%- assign rail = site.data.squad.players | where_exp: "p", "p.photo" | sort: "number", "last" -%}
     {%- for p in rail -%}
     {% include player-card.html p=p %}
     {%- endfor -%}
