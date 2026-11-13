@@ -66,7 +66,7 @@ players:
 
   - number: 12
     name: Diamond
-    position: Defender
+    position: Left Back
     position_group: DEF
 
   - number: 16
@@ -81,7 +81,7 @@ players:
 
   - number: 22
     name: GD
-    position: Defender
+    position: Centre Back
     position_group: DEF
 
   # ── Midfielders ──
@@ -128,12 +128,12 @@ players:
 
   - number: 20
     name: Adeleke
-    position: Midfielder
+    position: Central Mid
     position_group: MID
 
   - number: 25
     name: Buchi
-    position: Midfielder
+    position: Central Mid
     position_group: MID
 
   # ── Forwards ──
@@ -161,7 +161,7 @@ players:
     position_group: FWD
   - number: 26
     name: Wale
-    position: Forward
+    position: Striker
     position_group: FWD
 
 
