@@ -15,7 +15,7 @@
 
   <div class="versus">
     {%- capture kings_side -%}<div class="versus__team"><img src="{{ '/images/crest-192.png' | relative_url }}" alt="" width="72" height="72"><span>Apapa Kings</span></div>{%- endcapture -%}
-    {%- capture opp_side -%}<div class="versus__team"><span class="versus__badge" aria-hidden="true">{{ nf.opponent | slice: 0 }}</span><span>{{ nf.opponent }}</span></div>{%- endcapture -%}
+    {%- capture opp_side -%}<div class="versus__team">{% if nf.crest %}<img class="versus__crest" src="{{ nf.crest | relative_url }}" alt="" width="72" height="72">{% else %}<span class="versus__badge" aria-hidden="true">{{ nf.opponent | slice: 0 }}</span>{% endif %}<span>{{ nf.opponent }}</span></div>{%- endcapture -%}
     {%- if nf.home == false -%}{{ opp_side }}{%- else -%}{{ kings_side }}{%- endif -%}
     <span class="versus__vs">vs</span>
     {%- if nf.home == false -%}{{ kings_side }}{%- else -%}{{ opp_side }}{%- endif -%}

@@ -352,6 +352,7 @@ body.menu-open { overflow: hidden; }
 }
 .versus__team { display: grid; justify-items: center; gap: 8px; font-family: var(--font-display); text-transform: uppercase; font-size: clamp(1.1rem, 4.5vw, 1.5rem); line-height: 1; }
 .versus__team img { width: 72px; height: 72px; }
+.versus__crest { object-fit: contain; mix-blend-mode: multiply; }
 .versus__badge {
   width: 72px; height: 72px; display: grid; place-items: center;
   border-radius: 50%; background: var(--ink); color: var(--white);
