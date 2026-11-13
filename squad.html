@@ -25,7 +25,7 @@ description: Meet the Apapa Kings FC squad. Goalkeepers, defenders, midfielders,
 <div class="band band--paper">
   <div class="wrap">
     {%- for g in squad.groups -%}
-    {%- assign group_players = squad.players | where: "position_group", g.code | sort: "number" -%}
+    {%- assign group_players = squad.players | where: "position_group", g.code | sort: "number", "last" -%}
     {%- if group_players.size > 0 -%}
     <section class="squad-group" id="{{ g.code | downcase }}" aria-labelledby="h-{{ g.code | downcase }}">
       <h2 class="squad-group__title" id="h-{{ g.code | downcase }}">{{ g.label }} <span>{{ g.code }}</span></h2>

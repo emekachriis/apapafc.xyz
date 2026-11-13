@@ -33,13 +33,13 @@
 - date: 2026-07-19
   opponent: Recovery House
   home: false
-  venue: 721 Pitch, Elemu, Festac
+  venue: Elemu Field, 721 Festac
   score: "5-2"
 
 - date: 2026-08-02
-  opponent: Catholic Church
+  opponent: Catholic Church of the Presentation
   home: false
-  venue: 721 Pitch, Elemu, Festac
+  venue: Elemu Field, 721 Festac
   score: "2-4"
 
 - date: 2026-09-06
@@ -47,6 +47,32 @@
   home: true
   venue: Isolo Pitch
   score: "3-1"
+
+- date: 2026-09-20
+  kickoff: "14:45"
+  opponent: Tolu FC
+  home: false
+  venue: Oluwa Primary School, Tolu Complex
+  score: "2-2"
+
+- date: 2026-10-11
+  kickoff: "14:00"
+  opponent: Catholic Church of the Presentation
+  home: true
+  venue: Elemu Field, 721 Festac
+  score: "2-3"
+
+- date: 2026-10-25
+  opponent: Brave Hearts
+  home: true
+  venue: Signal Barracks Pitch, Mile 2
+  score: "4-3"
+
+- date: 2026-11-14
+  kickoff: "16:00"
+  opponent: Skyworld Academy
+  home: false
+  venue: FHA Festac
 
 # ── Example of an upcoming match (remove the # signs to use it) ──
 # - date: 2026-12-06

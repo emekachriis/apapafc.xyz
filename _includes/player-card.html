@@ -1,23 +1,24 @@
 {%- assign p = include.p -%}
+{%- if p.number -%}{%- capture who -%}{{ p.name }}, number {{ p.number }}{%- endcapture -%}{%- else -%}{%- assign who = p.name -%}{%- endif -%}
 <li class="player" data-group="{{ p.position_group }}">
   <figure class="player__frame">
     {%- if p.photo -%}
-    <img class="player__photo" src="{{ p.photo | relative_url }}" alt="{{ p.name }}, number {{ p.number }}" width="640" height="800" loading="lazy" decoding="async">
+    <img class="player__photo" src="{{ p.photo | relative_url }}" alt="{{ who }}" width="640" height="800" loading="lazy" decoding="async">
     {%- else -%}
     {%- assign shirt_name = p.name | upcase -%}
     {%- assign name_len = shirt_name | size -%}
     {%- if name_len > 9 -%}{%- assign name_size = 15 -%}{%- elsif name_len > 7 -%}{%- assign name_size = 18 -%}{%- else -%}{%- assign name_size = 21 -%}{%- endif -%}
-    <svg class="player__shirt" viewBox="0 0 200 250" role="img" aria-label="{{ p.name }}, number {{ p.number }}. Photo coming soon.">
+    <svg class="player__shirt" viewBox="0 0 200 250" role="img" aria-label="{{ who }}. Photo coming soon.">
       <g transform="translate(18 34) scale(.82)">
         <path class="shirt-body" d="M72 28c14 8 42 8 56 0l38 14 30 50-30 16-6-14v138c-40 6-80 6-120 0V94l-6 14-30-16 30-50z"/>
         <path class="shirt-trim" d="M72 28c14 8 42 8 56 0M196 92l-30 16M4 92l30 16"/>
         <text class="shirt-name" x="100" y="80" font-size="{{ name_size }}">{{ shirt_name }}</text>
-        <text class="shirt-num" x="100" y="190">{{ p.number }}</text>
+        <text class="shirt-num" x="100" y="190">{{ p.number | default: "K" }}</text>
       </g>
       <text class="shirt-soon" x="100" y="242">PHOTO SOON</text>
     </svg>
     {%- endif -%}
-    <span class="player__num" aria-hidden="true">{{ p.number }}</span>
+    {%- if p.number -%}<span class="player__num" aria-hidden="true">{{ p.number }}</span>{%- endif -%}
   </figure>
   <div class="player__info">
     <h3 class="player__name">{{ p.name }}</h3>
