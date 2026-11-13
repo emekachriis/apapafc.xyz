@@ -18,6 +18,7 @@ players:
     name: Amaechi
     position: Goalkeeper
     position_group: GK
+    photo: images/players/amaechi.jpg
 
   - number: 13
     name: Ebuka
@@ -73,6 +74,7 @@ players:
     name: Praise
     position: Defender
     position_group: DEF
+    photo: images/players/praise.jpg
 
   - number: 18
     name: Ifeanyi
@@ -125,11 +127,13 @@ players:
     name: Divine
     position: Attacking Mid
     position_group: MID
+    photo: images/players/divine.jpg
 
   - number: 20
     name: Adeleke
     position: Central Mid
     position_group: MID
+    photo: images/players/adeleke.jpg
 
   - number: 25
     name: Buchi
@@ -164,6 +168,7 @@ players:
     name: Wale
     position: Striker
     position_group: FWD
+    photo: images/players/wale.jpg
 
 
 
