@@ -1,0 +1,11 @@
+<section class="page-head grit{% if include.photo %} page-head--photo{% endif %}">
+  {%- if include.photo -%}
+  <div class="page-head__photo" aria-hidden="true"><img src="{{ include.photo | relative_url }}" alt="" width="1600" height="900"></div>
+  {%- endif -%}
+  <div class="wrap">
+    {%- if include.kicker -%}<p class="label label--tape">{{ include.kicker }}</p>{%- endif -%}
+    <h1 class="page-head__title">{{ include.title }}</h1>
+    {%- if include.intro -%}<p class="page-head__intro">{{ include.intro }}</p>{%- endif -%}
+  </div>
+  <span class="page-head__ghost" aria-hidden="true">{{ include.ghost | default: include.title | strip_html }}</span>
+</section>

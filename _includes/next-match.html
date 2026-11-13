@@ -1,0 +1,58 @@
+{%- comment -%}
+  The "Next match" panel. Needs next_fixture from record.html.
+  With no unplayed fixture in _data/fixtures.yml it shows the "open date" state.
+{%- endcomment -%}
+{%- assign club = site.data.club -%}
+{%- if next_fixture -%}
+  {%- assign nf = next_fixture -%}
+  {%- assign ko = nf.kickoff | default: "16:00" -%}
+  {%- capture start_iso -%}{{ nf.date | date: "%Y-%m-%d" }}T{{ ko }}:00+01:00{%- endcapture -%}
+<section class="next-match" aria-labelledby="next-match-title" data-next-match data-start="{{ start_iso }}">
+  <div class="next-match__head">
+    <h2 class="label label--tape" id="next-match-title">Next match</h2>
+    <span class="tag">{{ nf.type | default: "Friendly" }}</span>
+  </div>
+
+  <div class="versus">
+    {%- capture kings_side -%}<div class="versus__team"><img src="{{ '/images/crest-192.png' | relative_url }}" alt="" width="72" height="72"><span>Apapa Kings</span></div>{%- endcapture -%}
+    {%- capture opp_side -%}<div class="versus__team"><span class="versus__badge" aria-hidden="true">{{ nf.opponent | slice: 0 }}</span><span>{{ nf.opponent }}</span></div>{%- endcapture -%}
+    {%- if nf.home == false -%}{{ opp_side }}{%- else -%}{{ kings_side }}{%- endif -%}
+    <span class="versus__vs">vs</span>
+    {%- if nf.home == false -%}{{ kings_side }}{%- else -%}{{ opp_side }}{%- endif -%}
+  </div>
+
+  <ul class="meta-list">
+    <li><strong>{{ nf.date | date: "%A %-d %B" }}</strong></li>
+    {%- if nf.kickoff -%}<li>{% include icon.html name="clock" %} Kick-off {{ nf.kickoff }}</li>{%- endif -%}
+    <li>{% include icon.html name="pin" %} {{ nf.venue | default: "Venue TBC" }}</li>
+  </ul>
+
+  <div class="countdown" data-countdown aria-live="off">
+    <div><b data-cd="d">--</b><small>Days</small></div>
+    <div><b data-cd="h">--</b><small>Hrs</small></div>
+    <div><b data-cd="m">--</b><small>Min</small></div>
+    <div><b data-cd="s">--</b><small>Sec</small></div>
+  </div>
+  <p class="next-match__done" data-match-done hidden>Full time. The result will be posted here soon. Follow <a href="https://www.tiktok.com/@{{ club.tiktok }}">@{{ club.tiktok }}</a> for the first word.</p>
+</section>
+{%- else -%}
+<section class="next-match next-match--open" aria-labelledby="next-match-title">
+  <div class="next-match__head">
+    <h2 class="label label--tape" id="next-match-title">Next match</h2>
+    <span class="stamp" aria-hidden="true">Date<br>TBC</span>
+  </div>
+
+  <div class="versus versus--open">
+    <div class="versus__team"><img src="{{ '/images/crest-192.png' | relative_url }}" alt="" width="72" height="72"><span>Apapa Kings</span></div>
+    <span class="versus__vs">vs</span>
+    <div class="versus__team versus__team--empty"><span class="versus__badge" aria-hidden="true">?</span><span>Your team?</span></div>
+  </div>
+
+  <p class="next-match__copy">Nothing on the calendar just yet. The Kings play friendlies across Lagos, and the next one gets booked any day now. Fancy a game? Bring your eleven.</p>
+
+  <div class="btn-row">
+    <a class="btn btn--orange" href="https://wa.me/{{ club.whatsapp }}?text={{ 'Hello Apapa Kings FC, our team would like to arrange a friendly. ' | url_encode }}">{% include icon.html name="whatsapp" %} Challenge the Kings</a>
+    <a class="btn btn--ghost" href="https://www.tiktok.com/@{{ club.tiktok }}">{% include icon.html name="tiktok" %} Get match alerts</a>
+  </div>
+</section>
+{%- endif -%}

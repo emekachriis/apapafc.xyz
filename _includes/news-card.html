@@ -1,0 +1,22 @@
+{%- assign post = include.post -%}
+{%- assign kind = post.kind | default: "club-news" -%}
+{%- assign mf = nil -%}
+{%- if post.match -%}{%- for f in site.data.fixtures -%}{%- assign fd = f.date | date: "%Y-%m-%d" -%}{%- if fd == post.match and f.score -%}{%- assign mf = f -%}{%- endif -%}{%- endfor -%}{%- endif -%}
+<li class="news-card" data-kind="{{ kind }}">
+  <a class="news-card__link" href="{{ post.url | relative_url }}">
+    <div class="news-card__media">
+      {%- if post.image -%}
+      <img src="{{ post.image | relative_url }}" alt="" loading="lazy" decoding="async" width="800" height="450">
+      {%- elsif mf -%}
+      {% include scoreline.html f=mf compact=true %}
+      {%- else -%}
+      <div class="news-card__crest"><img src="{{ '/images/crest-192.png' | relative_url }}" alt="" width="96" height="96" loading="lazy"></div>
+      {%- endif -%}
+    </div>
+    <div class="news-card__body">
+      <p class="news-card__meta"><span class="tag{% if kind == 'match-report' %} tag--orange{% endif %}">{% if kind == "match-report" %}Match report{% else %}Club news{% endif %}</span> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time></p>
+      <h3 class="news-card__title">{{ post.title }}</h3>
+      {%- if include.excerpt -%}<p class="news-card__excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 140 }}</p>{%- endif -%}
+    </div>
+  </a>
+</li>

@@ -1,0 +1,66 @@
+---
+layout: default
+title: Join & Contact
+permalink: /join/
+redirect_from:
+  - /contact.html
+  - /contact/
+  - /sponsors.html
+description: Play for Apapa Kings FC, book a friendly against the Kings, or get in touch. WhatsApp, email and TikTok.
+---
+{%- assign club = site.data.club -%}
+{% include page-head.html kicker="Players · Teams · Fans" title="Join the Kings" intro="Want to play, want a game, or just want to say hello? Here's how." ghost="Join" %}
+
+<div class="band band--paper">
+  <div class="wrap join-grid">
+
+    <section class="join-card" id="play" aria-labelledby="play-title">
+      <p class="join-card__num" aria-hidden="true">01</p>
+      <h2 class="display" id="play-title">Play for us</h2>
+      <p>Fill this in and it opens WhatsApp with your message ready to send. We'll come back to you about the next session.</p>
+      <form class="wa-form" data-wa-form data-intro="Hello Apapa Kings FC, I'd like to play for the Kings.">
+        <label>Your name<input name="Name" autocomplete="name" required></label>
+        <label>Position
+          <select name="Position" required>
+            <option value="">Choose one</option>
+            <option>Goalkeeper</option><option>Defender</option><option>Midfielder</option><option>Forward</option><option>Anywhere, just give me a shirt</option>
+          </select>
+        </label>
+        <div class="field-row">
+          <label>Age<input name="Age" inputmode="numeric" pattern="[0-9]*" maxlength="2"></label>
+          <label>Area of Lagos<input name="Area" placeholder="e.g. Apapa"></label>
+        </div>
+        <label>Anything else? <span class="optional">(optional)</span><textarea name="About me" rows="3" placeholder="Previous teams, strong foot, etc."></textarea></label>
+        <button class="btn btn--orange" type="submit">{% include icon.html name="whatsapp" %} Send on WhatsApp</button>
+      </form>
+    </section>
+
+    <section class="join-card" id="friendly" aria-labelledby="friendly-title">
+      <p class="join-card__num" aria-hidden="true">02</p>
+      <h2 class="display" id="friendly-title">Book a friendly</h2>
+      <p>Got a team? Think you can take the Kings? Send us the details and let's set a date.</p>
+      <form class="wa-form" data-wa-form data-intro="Hello Apapa Kings FC, we'd like to arrange a friendly.">
+        <label>Team name<input name="Team" required></label>
+        <label>Your name<input name="Contact" autocomplete="name" required></label>
+        <div class="field-row">
+          <label>Preferred date<input name="Date" placeholder="e.g. Sat 6 Dec"></label>
+          <label>Pitch / area<input name="Pitch" placeholder="Where do you play?"></label>
+        </div>
+        <button class="btn btn--dark" type="submit">{% include icon.html name="whatsapp" %} Send on WhatsApp</button>
+      </form>
+    </section>
+
+    <section class="join-card join-card--direct" id="contact" aria-labelledby="contact-title">
+      <p class="join-card__num" aria-hidden="true">03</p>
+      <h2 class="display" id="contact-title">Talk to us</h2>
+      <p>Fans, neighbours, press, partners: we want to hear from you.</p>
+      <ul class="direct-list">
+        <li><a href="https://wa.me/{{ club.whatsapp }}">{% include icon.html name="whatsapp" %}<span><small>WhatsApp</small>{{ club.whatsapp_display }}</span></a></li>
+        <li><a href="mailto:{{ club.email }}">{% include icon.html name="mail" %}<span><small>Email</small>{{ club.email }}</span></a></li>
+        <li><a href="https://www.tiktok.com/@{{ club.tiktok }}">{% include icon.html name="tiktok" %}<span><small>TikTok</small>@{{ club.tiktok }}</span></a></li>
+      </ul>
+      <p class="small-print">Match-day news and clips land on TikTok first.</p>
+    </section>
+
+  </div>
+</div>

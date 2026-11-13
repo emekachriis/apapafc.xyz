@@ -1,0 +1,7 @@
+{%- comment -%} Needs rec_form from record.html {%- endcomment -%}
+{%- assign letters = rec_form | split: "" -%}
+<ol class="form-guide" aria-label="Form, last {{ letters.size }} matches, oldest first">
+  {%- for l in letters -%}
+  <li class="chip chip--{{ l | downcase }}" title="{% case l %}{% when 'W' %}Win{% when 'L' %}Loss{% else %}Draw{% endcase %}">{{ l }}</li>
+  {%- endfor -%}
+</ol>

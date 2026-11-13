@@ -1,0 +1,97 @@
+---
+layout: default
+title: About
+permalink: /about/
+description: Who Apapa Kings FC are. A street football club from Lagos, Nigeria, founded in 2025. Orange and white. Kings Never Settle.
+---
+{%- assign club = site.data.club -%}
+{%- include record.html -%}
+{%- capture kicker -%}Est. {{ site.data.club.founded }} · Lagos{%- endcapture -%}
+{% include page-head.html kicker=kicker title="Who we are" ghost="Apapa" photo="/images/photos/match4.jpg" %}
+
+<section class="band band--paper">
+  <div class="wrap about-intro">
+    <p class="about-intro__lead">Apapa Kings FC is a football club from Lagos, born in {{ club.founded }} with one rule written on the wall: <strong>Kings never settle.</strong></p>
+    <div class="prose">
+      <p>We play on the pitches Lagos actually has: hard sand, uneven grass, goalposts that have seen things. No fancy facilities, no excuses. Just a squad in orange turning up every matchday to compete for each other and for the badge.</p>
+      <p>Right now the Kings play friendlies against teams across the city. Every game is a chance to get better, meet new teams and put the name Apapa on the map. If your side wants a game, we're ready.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--ink grit" aria-labelledby="values-title">
+  <div class="wrap">
+    <h2 class="display display--light" id="values-title">What <span class="swipe">never settle</span> means</h2>
+    <ol class="values">
+      <li>
+        <h3>Show up</h3>
+        <p>Training, matchday, rain or sun. The shirt is earned by being there.</p>
+      </li>
+      <li>
+        <h3>Work for each other</h3>
+        <p>Nobody plays for themselves. Win it back, cover the run, lift each other up.</p>
+      </li>
+      <li>
+        <h3>Never satisfied</h3>
+        <p>Won? Good. Now do it better. Lost? Learn it, own it, come back harder.</p>
+      </li>
+      <li>
+        <h3>Respect the game</h3>
+        <p>Respect the opponent, the referee and the people who come out to watch.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band band--paper" aria-labelledby="facts-title">
+  <div class="wrap">
+    <h2 class="display" id="facts-title">The club <span class="swipe">at a glance</span></h2>
+    <dl class="facts">
+      <div><dt>Founded</dt><dd>{{ club.founded }}</dd></div>
+      <div><dt>Home</dt><dd>{{ club.city }}, {{ club.country }}</dd></div>
+      <div><dt>Colours</dt><dd><span class="swatch swatch--orange"></span>Orange <span class="swatch swatch--white"></span>White</dd></div>
+      <div><dt>Motto</dt><dd>{{ club.motto }}</dd></div>
+      {%- if rec_p > 0 -%}
+      <div><dt>Record so far</dt><dd>P{{ rec_p }} · W{{ rec_w }} D{{ rec_d }} L{{ rec_l }}</dd></div>
+      {%- endif -%}
+      <div><dt>Squad</dt><dd>{{ site.data.squad.players.size }} players</dd></div>
+    </dl>
+
+    {%- assign venues = "" -%}
+    {%- for f in site.data.fixtures -%}{%- if f.score and f.venue -%}{%- assign venues = venues | append: f.venue | append: "|" -%}{%- endif -%}{%- endfor -%}
+    {%- assign venues = venues | split: "|" | uniq -%}
+    {%- if venues.size > 0 -%}
+    <h3 class="label about-venues__title">Pitches we've played on</h3>
+    <ul class="venue-list">
+      {%- for v in venues -%}<li>{% include icon.html name="pin" %} {{ v }}</li>{%- endfor -%}
+    </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="bench-title">
+  <div class="wrap">
+    <h2 class="display" id="bench-title">On the <span class="swipe">bench</span></h2>
+    <ul class="staff-grid">
+      {%- for c in site.data.squad.staff -%}
+      <li class="staff">
+        <span class="staff__avatar" aria-hidden="true">{{ c.name | slice: 0, 2 | upcase }}</span>
+        <div>
+          <p class="staff__role">{{ c.role }}</p>
+          <h3 class="staff__name">{{ c.name }}</h3>
+        </div>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+<section class="band band--orange grit join-banner" aria-labelledby="about-join-title">
+  <div class="wrap join-banner__inner">
+    <h2 class="display display--xl" id="about-join-title">Wear the<br>orange.</h2>
+    <div>
+      <p>Players, opponents, fans, neighbours: there's a place for you around this club.</p>
+      <div class="btn-row"><a class="btn btn--dark" href="{{ '/join/' | relative_url }}">Get involved {% include icon.html name="arrow" %}</a></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+{%- assign club = site.data.club -%}
+<footer class="site-footer grit">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <img class="site-footer__crest" src="{{ '/images/crest-192.png' | relative_url }}" alt="{{ club.name }} crest" width="96" height="96" loading="lazy">
+      <p class="site-footer__motto" aria-label="{{ club.motto }}">Kings<br><span class="outline">Never</span><br>Settle.</p>
+    </div>
+
+    <div class="site-footer__cols">
+      <div>
+        <h2 class="label">The club</h2>
+        <ul class="plain">
+          {%- for item in site.data.nav -%}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div>
+        <h2 class="label">Talk to us</h2>
+        <ul class="plain contact-list">
+          <li><a href="https://wa.me/{{ club.whatsapp }}">{% include icon.html name="whatsapp" %}<span>{{ club.whatsapp_display }}</span></a></li>
+          <li><a href="mailto:{{ club.email }}">{% include icon.html name="mail" %}<span>{{ club.email }}</span></a></li>
+          <li><a href="https://www.tiktok.com/@{{ club.tiktok }}">{% include icon.html name="tiktok" %}<span>@{{ club.tiktok }}</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="site-footer__base">
+      <span>{{ club.name }}</span>
+      <span>{{ club.city }}, {{ club.country }}</span>
+      <span>Est. {{ club.founded }}</span>
+      <span>© {{ site.time | date: "%Y" }}</span>
+    </p>
+  </div>
+</footer>

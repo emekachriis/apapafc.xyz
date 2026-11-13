@@ -1,0 +1,23 @@
+# ─────────────────────────────────────────────────────────────
+#  CLUB DETAILS — change contact info here and it updates
+#  everywhere on the site (header, footer, contact page, links).
+# ─────────────────────────────────────────────────────────────
+
+name: Apapa Kings FC
+short_name: Apapa Kings
+motto: Kings Never Settle
+founded: 2025
+city: Lagos
+country: Nigeria
+
+# The one and only club email address.
+email: contact@apapakingsfc.xyz
+
+# WhatsApp: international format, digits only (234 = Nigeria, drop the leading 0).
+whatsapp: "2348102776552"
+whatsapp_display: "+234 810 277 6552"
+
+tiktok: apapa_kingsfc        # without the @
+
+# Season label shown on the squad & fixtures pages.
+season: 2026
