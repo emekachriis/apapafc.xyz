@@ -64,22 +64,22 @@ players:
     position: Centre Back
     position_group: DEF
 
-  - number:            # shirt number to come
+  - number: 12
     name: Diamond
     position: Defender
     position_group: DEF
 
-  - number:            # shirt number to come
+  - number: 16
     name: Praise
     position: Defender
     position_group: DEF
 
-  - number:            # shirt number to come
+  - number: 18
     name: Ifeanyi
     position: Defender
     position_group: DEF
 
-  - number:            # shirt number to come
+  - number: 22
     name: GD
     position: Defender
     position_group: DEF
@@ -97,7 +97,7 @@ players:
     position_group: MID
     photo: images/players/joseph.jpg
 
-  - number: 12
+  - number: 6
     name: Ola
     position: Central Mid
     position_group: MID
@@ -121,17 +121,17 @@ players:
     position_group: MID
     photo: images/players/charles.jpg
 
-  - number: 22
+  - number: 8
     name: Divine
     position: Attacking Mid
     position_group: MID
 
-  - number:            # shirt number to come
+  - number: 20
     name: Adeleke
     position: Midfielder
     position_group: MID
 
-  - number:            # shirt number to come
+  - number: 25
     name: Buchi
     position: Midfielder
     position_group: MID
@@ -159,7 +159,7 @@ players:
     name: Goodness
     position: Left Winger
     position_group: FWD
-  - number:            # shirt number to come
+  - number: 26
     name: Wale
     position: Forward
     position_group: FWD
