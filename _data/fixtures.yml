@@ -48,6 +48,26 @@
   venue: Isolo Pitch
   score: "3-1"
 
+- date: 2026-09-20
+  kickoff: "14:45"
+  opponent: Tolu FC
+  home: false
+  venue: Oluwa Primary School, Tolu Complex
+  score: "2-2"
+
+- date: 2026-10-11
+  kickoff: "14:00"
+  opponent: Catholic Church of the Presentation
+  home: true
+  venue: Elemu Field, 721 Festac
+  score: "2-3"
+
+- date: 2026-11-14
+  kickoff: "16:00"
+  opponent: Skyworld Academy
+  home: false
+  venue: FHA Festac
+
 # ── Example of an upcoming match (remove the # signs to use it) ──
 # - date: 2026-12-06
 #   kickoff: "16:00"

@@ -1,8 +1,11 @@
 {%- comment -%} One played fixture. Pass f=fixture. {%- endcomment -%}
 {%- assign f = include.f -%}
+{%- if f.score -%}
 {%- assign s = f.score | split: "-" -%}
 {%- assign gf = s[0] | strip | plus: 0 -%}{%- assign ga = s[1] | strip | plus: 0 -%}
-{%- if gf > ga -%}{%- assign oc = "w" -%}{%- assign oc_word = "Won" -%}
+{%- else -%}{%- assign gf = "–" -%}{%- assign ga = "–" -%}{%- endif -%}
+{%- if f.score == nil -%}{%- assign oc = "tbc" -%}{%- assign oc_word = "Result to come" -%}
+{%- elsif gf > ga -%}{%- assign oc = "w" -%}{%- assign oc_word = "Won" -%}
 {%- elsif gf < ga -%}{%- assign oc = "l" -%}{%- assign oc_word = "Lost" -%}
 {%- else -%}{%- assign oc = "d" -%}{%- assign oc_word = "Drew" -%}{%- endif -%}
 {%- assign fdate = f.date | date: "%Y-%m-%d" -%}
@@ -24,7 +27,12 @@
       {%- endif -%}
     </div>
     <p class="result__venue">{% include icon.html name="pin" %} {{ f.venue }}</p>
+    {%- if oc == "tbc" -%}<p class="result__pending">Result to come</p>{%- endif -%}
     {%- if report -%}<a class="result__link" href="{{ report.url | relative_url }}">Match report {% include icon.html name="arrow" %}</a>{%- endif -%}
   </div>
+  {%- if oc == "tbc" -%}
+  <span class="chip chip--tbc chip--lg" aria-label="Result to come">?</span>
+  {%- else -%}
   <span class="chip chip--{{ oc }} chip--lg" aria-label="Kings {{ oc_word | downcase }}">{{ oc | upcase }}</span>
+  {%- endif -%}
 </li>

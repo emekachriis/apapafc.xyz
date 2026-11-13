@@ -146,6 +146,7 @@ ul.plain, ol.plain { list-style: none; padding: 0; }
 .chip--l { background: var(--ink); color: var(--white); }
 .chip--d { background: var(--paper); color: var(--ink); }
 .chip--lg { width: 2.6rem; height: 2.6rem; font-size: 1.4rem; }
+.chip--tbc { background: var(--white); color: var(--muted); border-style: dashed; }
 
 .form-guide { display: flex; gap: 6px; list-style: none; padding: 0; }
 
@@ -572,6 +573,8 @@ body.menu-open { overflow: hidden; }
 .result--w { box-shadow: 6px 6px 0 var(--orange); }
 .result--l { box-shadow: 6px 6px 0 var(--ink); }
 .result--d { box-shadow: 6px 6px 0 var(--paper-2); }
+.result--tbc { border-style: dashed; box-shadow: 6px 6px 0 var(--paper-2); }
+.result__pending { margin-top: 8px; font-stretch: 80%; font-weight: 800; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--orange-ink); }
 .result__date {
   width: 56px; text-align: center; background: var(--ink); color: var(--white); padding: 8px 0 6px;
 }

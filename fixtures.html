@@ -31,7 +31,8 @@ description: Apapa Kings FC fixtures and results. Every friendly, every scorelin
     </div>
 
     <div class="fixtures-layout__main">
-      {%- assign upcoming = site.data.fixtures | where_exp: "f", "f.score == nil" -%}
+      {%- assign upcoming = "" | split: "" -%}
+      {%- for f in site.data.fixtures -%}{%- assign f_num = f.date | date: "%Y%m%d" | plus: 0 -%}{%- if f.score == nil and f_num >= today_num -%}{%- assign upcoming = upcoming | push: f -%}{%- endif -%}{%- endfor -%}
       {%- if upcoming.size > 1 -%}
       <section aria-labelledby="upcoming-title">
         <h2 class="display" id="upcoming-title">Coming up</h2>
@@ -52,7 +53,9 @@ description: Apapa Kings FC fixtures and results. Every friendly, every scorelin
 
       <section aria-labelledby="results-title">
         <h2 class="display" id="results-title">Results</h2>
-        {%- assign played = site.data.fixtures | where_exp: "f", "f.score" | reverse -%}
+        {%- assign played = "" | split: "" -%}
+        {%- for f in site.data.fixtures -%}{%- assign f_num = f.date | date: "%Y%m%d" | plus: 0 -%}{%- if f.score or f_num < today_num -%}{%- assign played = played | push: f -%}{%- endif -%}{%- endfor -%}
+        {%- assign played = played | reverse -%}
         {%- if played.size > 0 -%}
         <ol class="result-list" reversed>
           {%- for f in played -%}

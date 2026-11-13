@@ -1,11 +1,13 @@
 {%- comment -%}
   Works out the season record from _data/fixtures.yml.
   Sets: rec_p rec_w rec_d rec_l rec_gf rec_ga rec_gd rec_form (e.g. "WLWLW"),
-        last_result (the most recent played fixture), next_fixture (first unplayed one).
+        last_result (the most recent played fixture), next_fixture (first unplayed one from today on),
+        rec_pending (matches already played but with no score entered yet).
 {%- endcomment -%}
 {%- assign rec_p = 0 -%}{%- assign rec_w = 0 -%}{%- assign rec_d = 0 -%}{%- assign rec_l = 0 -%}
 {%- assign rec_gf = 0 -%}{%- assign rec_ga = 0 -%}{%- assign rec_form = "" -%}
-{%- assign last_result = nil -%}{%- assign next_fixture = nil -%}
+{%- assign last_result = nil -%}{%- assign next_fixture = nil -%}{%- assign rec_pending = 0 -%}
+{%- assign today_num = site.time | date: "%Y%m%d" | plus: 0 -%}
 {%- for f in site.data.fixtures -%}
   {%- if f.score -%}
     {%- assign s = f.score | split: "-" -%}
@@ -16,8 +18,10 @@
     {%- elsif gf < ga -%}{%- assign rec_l = rec_l | plus: 1 -%}{%- assign rec_form = rec_form | append: "L" -%}
     {%- else -%}{%- assign rec_d = rec_d | plus: 1 -%}{%- assign rec_form = rec_form | append: "D" -%}{%- endif -%}
     {%- assign last_result = f -%}
-  {%- elsif next_fixture == nil -%}
-    {%- assign next_fixture = f -%}
+  {%- else -%}
+    {%- assign f_num = f.date | date: "%Y%m%d" | plus: 0 -%}
+    {%- if f_num < today_num -%}{%- assign rec_pending = rec_pending | plus: 1 -%}
+    {%- elsif next_fixture == nil -%}{%- assign next_fixture = f -%}{%- endif -%}
   {%- endif -%}
 {%- endfor -%}
 {%- assign rec_gd = rec_gf | minus: rec_ga -%}
