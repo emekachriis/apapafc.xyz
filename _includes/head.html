@@ -1,0 +1,48 @@
+{%- assign club = site.data.club -%}
+{%- if page.title and page.url != "/" -%}
+  {%- assign full_title = page.title | append: " · " | append: club.name -%}
+{%- else -%}
+  {%- assign full_title = club.name | append: " · " | append: club.motto -%}
+{%- endif -%}
+{%- assign desc = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 180 -%}
+{%- assign share_img = page.image | default: "/images/og-default.jpg" -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ full_title }}</title>
+<meta name="description" content="{{ desc | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta name="theme-color" content="#FF5A1A">
+
+<meta property="og:site_name" content="{{ club.name }}">
+<meta property="og:title" content="{{ page.title | default: full_title | escape }}">
+<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:image" content="{{ share_img | absolute_url }}">
+<meta property="og:locale" content="en_NG">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/archivo-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsTeam",
+  "name": {{ club.name | jsonify }},
+  "sport": "Football",
+  "slogan": {{ club.motto | jsonify }},
+  "foundingDate": "{{ club.founded }}",
+  "url": "{{ site.url }}",
+  "logo": "{{ '/images/crest.png' | absolute_url }}",
+  "email": {{ club.email | jsonify }},
+  "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG" } },
+  "sameAs": ["https://www.tiktok.com/@{{ club.tiktok }}"]
+}
+</script>

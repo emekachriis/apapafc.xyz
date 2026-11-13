@@ -1,0 +1,41 @@
+{%- assign club = site.data.club -%}
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="site-header__bar">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ club.name }}, home">
+      <img class="brand__crest" src="{{ '/images/crest-192.png' | relative_url }}" alt="" width="44" height="44">
+      <span class="brand__word">Apapa <b>Kings</b></span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <ul class="nav__list">
+        {%- for item in site.data.nav -%}
+        {%- if item.url == "/join/" -%}{%- continue -%}{%- endif -%}
+        {%- assign active = false -%}
+        {%- if page.url == item.url -%}{%- assign active = true -%}{%- endif -%}
+        {%- if item.url == "/news/" and page.layout == "post" -%}{%- assign active = true -%}{%- endif -%}
+        <li><a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <a class="btn btn--join" href="{{ '/join/' | relative_url }}">Join</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+
+  <div class="menu" id="menu" hidden data-menu>
+    <ul class="menu__list">
+      {%- for item in site.data.nav -%}
+      <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}><small>{{ forloop.index | prepend: "0" }}</small>{{ item.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+    <div class="menu__foot">
+      <a href="https://wa.me/{{ club.whatsapp }}">{% include icon.html name="whatsapp" %} WhatsApp</a>
+      <a href="https://www.tiktok.com/@{{ club.tiktok }}">{% include icon.html name="tiktok" %} @{{ club.tiktok }}</a>
+    </div>
+  </div>
+</header>

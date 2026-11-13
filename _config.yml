@@ -1,1 +1,37 @@
+# Site settings. Club contact details live in _data/club.yml.
+title: Apapa Kings FC
+description: >-
+  Apapa Kings FC: street football club from Lagos, Nigeria. Est. 2025.
+  Squad, fixtures, results, match reports and how to join. Kings Never Settle.
+url: https://apapakingsfc.xyz
+lang: en-NG
+timezone: Africa/Lagos
+
 permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+
+defaults:
+  - scope: { path: "", type: posts }
+    values:
+      layout: post
+      permalink: /news/:year/:month/:title/
+
+# Files that are kept in the repo but not published on the website.
+exclude:
+  - README.md
+  - tools/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - "images/Capture.PNG"
+  - "images/apple com.PNG"
+  - "images/image11.PNG"
+  - "images/image11.png"
+  - "images/aglogo.png"
+  - "images/squad-list-brave-hearts.jpg"

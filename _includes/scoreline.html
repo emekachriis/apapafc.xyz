@@ -1,0 +1,17 @@
+{%- comment -%} Big printed scoreline for a played fixture. Pass f=fixture, optional compact=true. {%- endcomment -%}
+{%- assign sf = include.f -%}
+{%- assign ss = sf.score | split: "-" -%}
+{%- assign sgf = ss[0] | strip | plus: 0 -%}{%- assign sga = ss[1] | strip | plus: 0 -%}
+{%- if sgf > sga -%}{%- assign soc = "Won" -%}{%- elsif sgf < sga -%}{%- assign soc = "Lost" -%}{%- else -%}{%- assign soc = "Drew" -%}{%- endif -%}
+<div class="scoreline{% if include.compact %} scoreline--compact{% endif %}" role="img" aria-label="{% if sf.home %}Apapa Kings {{ sgf }}, {{ sf.opponent }} {{ sga }}{% else %}{{ sf.opponent }} {{ sga }}, Apapa Kings {{ sgf }}{% endif %}">
+  <div class="scoreline__side{% unless sf.home %} is-opp{% endunless %}">
+    <span class="scoreline__team">{% if sf.home %}Kings{% else %}{{ sf.opponent }}{% endif %}</span>
+    <b>{% if sf.home %}{{ sgf }}{% else %}{{ sga }}{% endif %}</b>
+  </div>
+  <span class="scoreline__dash" aria-hidden="true">–</span>
+  <div class="scoreline__side{% if sf.home %} is-opp{% endif %}">
+    <b>{% if sf.home %}{{ sga }}{% else %}{{ sgf }}{% endif %}</b>
+    <span class="scoreline__team">{% if sf.home %}{{ sf.opponent }}{% else %}Kings{% endif %}</span>
+  </div>
+  <span class="scoreline__stamp">Kings {{ soc | downcase }}</span>
+</div>

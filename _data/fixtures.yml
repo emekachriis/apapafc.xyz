@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────────────────────
+#  FIXTURES & RESULTS
+#
+#  One block per match, oldest first.
+#
+#  date:      YYYY-MM-DD
+#  kickoff:   optional, 24-hour time in Lagos, e.g. "15:30"
+#  opponent:  the other team's name
+#  home:      true if the Kings are the home side, false if away
+#  venue:     the pitch
+#  score:     KINGS' GOALS FIRST, then theirs, e.g. "3-2" means the Kings scored 3.
+#             Leave score out for a match that hasn't been played yet.
+#             It then becomes the "Next match" on the home page.
+#  type:      optional label, defaults to "Friendly"
+#
+#  To link a match report, give the news post  match: "YYYY-MM-DD"
+#  (the same date as the fixture). See README.
+# ─────────────────────────────────────────────────────────────
+
+- date: 2026-06-14
+  kickoff: "15:30"
+  opponent: Brave Hearts
+  home: false
+  venue: Signal Barracks Pitch, Mile 2
+  score: "3-2"
+
+- date: 2026-06-28
+  opponent: Mushin Central FC
+  home: false
+  venue: Abule-Ado Field
+  score: "1-4"
+
+- date: 2026-07-19
+  opponent: Recovery House
+  home: false
+  venue: 721 Pitch, Elemu, Festac
+  score: "5-2"
+
+- date: 2026-08-02
+  opponent: Catholic Church
+  home: false
+  venue: 721 Pitch, Elemu, Festac
+  score: "2-4"
+
+- date: 2026-09-06
+  opponent: Iganmu Giants
+  home: true
+  venue: Isolo Pitch
+  score: "3-1"
+
+# ── Example of an upcoming match (remove the # signs to use it) ──
+# - date: 2026-12-06
+#   kickoff: "16:00"
+#   opponent: Somebody FC
+#   home: true
+#   venue: Isolo Pitch

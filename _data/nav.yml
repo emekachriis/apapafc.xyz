@@ -1,0 +1,13 @@
+# Main menu, in order.
+- title: Home
+  url: /
+- title: Squad
+  url: /squad/
+- title: Fixtures
+  url: /fixtures/
+- title: News
+  url: /news/
+- title: About
+  url: /about/
+- title: Join & Contact
+  url: /join/

@@ -1,0 +1,175 @@
+# ─────────────────────────────────────────────────────────────
+#  THE SQUAD
+#
+#  To add a player, copy one block and change the details.
+#  position_group must be one of:  GK  DEF  MID  FWD
+#
+#  photo is optional. Leave it out and the player gets a
+#  printed-shirt placeholder with their name and number.
+#  To add a photo, put the file in images/players/ (see README).
+#
+#  Players show in number order within each group.
+# ─────────────────────────────────────────────────────────────
+
+players:
+
+  # ── Goalkeepers ──
+  - number: 1
+    name: Sochima
+    position: Goalkeeper
+    position_group: GK
+
+  - number: 13
+    name: Amaechi
+    position: Goalkeeper
+    position_group: GK
+
+  # ── Defenders ──
+  - number: 2
+    name: Chukwuyem
+    position: Centre Back
+    position_group: DEF
+    photo: images/players/chris.jpg
+
+  - number: 3
+    name: Christian
+    position: Centre Back
+    position_group: DEF
+    photo: images/players/christian.jpg
+
+  - number: 4
+    name: Ericki
+    position: Left Back
+    position_group: DEF
+
+  - number: 5
+    name: Benjamin
+    position: Right Back
+    position_group: DEF
+    photo: images/players/benjamin.jpg
+
+  - number: 6
+    name: Chizurum
+    position: Centre Back / Defensive Mid
+    position_group: DEF
+
+  - number: 17
+    name: Chibuzor
+    position: Centre Back
+    position_group: DEF
+    photo: images/players/chibuzor.jpg
+
+  - number: 18
+    name: Benson
+    position: Left Back
+    position_group: DEF
+
+  - number: 24
+    name: Samuel
+    position: Centre Back
+    position_group: DEF
+
+  # ── Midfielders ──
+  - number: 7
+    name: Francis
+    position: Attacking Mid
+    position_group: MID
+    photo: images/players/francis.jpg
+
+  - number: 8
+    name: Arthur
+    position: Central Mid
+    position_group: MID
+
+  - number: 10
+    name: Joseph
+    position: Attacking Mid
+    position_group: MID
+    photo: images/players/joseph.jpg
+
+  - number: 12
+    name: Ola
+    position: Central Mid
+    position_group: MID
+    photo: images/players/ola.jpg
+
+  - number: 15
+    name: Great
+    position: Defensive Mid
+    position_group: MID
+    photo: images/players/great.jpg
+
+  - number: 19
+    name: Pascal
+    position: Defensive Mid
+    position_group: MID
+    photo: images/players/pascal.jpg
+
+  - number: 20
+    name: Alike
+    position: Attacking Mid
+    position_group: MID
+
+  - number: 21
+    name: Charles
+    position: Central Mid
+    position_group: MID
+    photo: images/players/charles.jpg
+
+  - number: 22
+    name: Divine
+    position: Attacking Mid
+    position_group: MID
+
+  # ── Forwards ──
+  - number: 9
+    name: Wisdom
+    position: Striker
+    position_group: FWD
+    photo: images/players/wisdom.jpg
+
+  - number: 11
+    name: David
+    position: Left Winger
+    position_group: FWD
+    photo: images/players/david.jpg
+
+  - number: 14
+    name: Aboy
+    position: Striker / Attacking Mid
+    position_group: FWD
+    photo: images/players/aboy.jpg
+
+  - number: 16
+    name: Genesis
+    position: Striker
+    position_group: FWD
+
+  - number: 23
+    name: Goodness
+    position: Left Winger
+    position_group: FWD
+
+
+# ─────────────────────────────────────────────────────────────
+#  COACHING STAFF  (initials are used when there's no photo)
+# ─────────────────────────────────────────────────────────────
+
+staff:
+  - name: Nwell
+    role: Head Coach
+
+  - name: Raphael
+    role: Assistant Coach
+
+
+# Labels for the position groups (order here = order on the page).
+groups:
+  - code: GK
+    label: Goalkeepers
+  - code: DEF
+    label: Defenders
+  - code: MID
+    label: Midfielders
+  - code: FWD
+    label: Forwards

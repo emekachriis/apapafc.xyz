@@ -1,0 +1,25 @@
+{%- comment -%}
+  Works out the season record from _data/fixtures.yml.
+  Sets: rec_p rec_w rec_d rec_l rec_gf rec_ga rec_gd rec_form (e.g. "WLWLW"),
+        last_result (the most recent played fixture), next_fixture (first unplayed one).
+{%- endcomment -%}
+{%- assign rec_p = 0 -%}{%- assign rec_w = 0 -%}{%- assign rec_d = 0 -%}{%- assign rec_l = 0 -%}
+{%- assign rec_gf = 0 -%}{%- assign rec_ga = 0 -%}{%- assign rec_form = "" -%}
+{%- assign last_result = nil -%}{%- assign next_fixture = nil -%}
+{%- for f in site.data.fixtures -%}
+  {%- if f.score -%}
+    {%- assign s = f.score | split: "-" -%}
+    {%- assign gf = s[0] | strip | plus: 0 -%}{%- assign ga = s[1] | strip | plus: 0 -%}
+    {%- assign rec_p = rec_p | plus: 1 -%}
+    {%- assign rec_gf = rec_gf | plus: gf -%}{%- assign rec_ga = rec_ga | plus: ga -%}
+    {%- if gf > ga -%}{%- assign rec_w = rec_w | plus: 1 -%}{%- assign rec_form = rec_form | append: "W" -%}
+    {%- elsif gf < ga -%}{%- assign rec_l = rec_l | plus: 1 -%}{%- assign rec_form = rec_form | append: "L" -%}
+    {%- else -%}{%- assign rec_d = rec_d | plus: 1 -%}{%- assign rec_form = rec_form | append: "D" -%}{%- endif -%}
+    {%- assign last_result = f -%}
+  {%- elsif next_fixture == nil -%}
+    {%- assign next_fixture = f -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign rec_gd = rec_gf | minus: rec_ga -%}
+{%- assign form_len = rec_form | size -%}
+{%- if form_len > 5 -%}{%- assign form_start = form_len | minus: 5 -%}{%- assign rec_form = rec_form | slice: form_start, 5 -%}{%- endif -%}

@@ -1,0 +1,30 @@
+{%- comment -%} One played fixture. Pass f=fixture. {%- endcomment -%}
+{%- assign f = include.f -%}
+{%- assign s = f.score | split: "-" -%}
+{%- assign gf = s[0] | strip | plus: 0 -%}{%- assign ga = s[1] | strip | plus: 0 -%}
+{%- if gf > ga -%}{%- assign oc = "w" -%}{%- assign oc_word = "Won" -%}
+{%- elsif gf < ga -%}{%- assign oc = "l" -%}{%- assign oc_word = "Lost" -%}
+{%- else -%}{%- assign oc = "d" -%}{%- assign oc_word = "Drew" -%}{%- endif -%}
+{%- assign fdate = f.date | date: "%Y-%m-%d" -%}
+{%- assign report = site.posts | where: "match", fdate | first -%}
+<li class="result result--{{ oc }}">
+  <div class="result__date">
+    <b>{{ f.date | date: "%d" }}</b>
+    <span>{{ f.date | date: "%b" }}</span>
+  </div>
+  <div class="result__body">
+    <p class="result__meta"><span class="tag">{{ f.type | default: "Friendly" }}</span> {% if f.home %}Home{% else %}Away{% endif %}</p>
+    <div class="result__teams">
+      {%- if f.home -%}
+      <span class="result__team is-kings">Apapa Kings</span><b class="result__score">{{ gf }}</b>
+      <span class="result__team">{{ f.opponent }}</span><b class="result__score">{{ ga }}</b>
+      {%- else -%}
+      <span class="result__team">{{ f.opponent }}</span><b class="result__score">{{ ga }}</b>
+      <span class="result__team is-kings">Apapa Kings</span><b class="result__score">{{ gf }}</b>
+      {%- endif -%}
+    </div>
+    <p class="result__venue">{% include icon.html name="pin" %} {{ f.venue }}</p>
+    {%- if report -%}<a class="result__link" href="{{ report.url | relative_url }}">Match report {% include icon.html name="arrow" %}</a>{%- endif -%}
+  </div>
+  <span class="chip chip--{{ oc }} chip--lg" aria-label="Kings {{ oc_word | downcase }}">{{ oc | upcase }}</span>
+</li>
