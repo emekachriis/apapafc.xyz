@@ -78,6 +78,7 @@
   crest: images/opponents/skyworld.jpg
   home: false
   venue: FHA Festac
+  score: "3-1"
   squad:
     GK: [Ebuka]
     DEF: [Praise, Samuel, Benjamin, Chris, Alakhumen, Diamond, "Ketris (trialist)"]
