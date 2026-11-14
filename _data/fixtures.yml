@@ -92,6 +92,13 @@
     Buchi pulling the strings
     Divine uptop
 
+- date: 2026-11-15
+  kickoff: "14:00"
+  opponent: Golden United FC
+  crest: images/opponents/golden-united.jpg
+  home: false
+  venue: Nathaniel Idowu Stadium, Ajegunle
+
 # ── Example of an upcoming match (remove the # signs to use it) ──
 # - date: 2026-12-06
 #   kickoff: "16:00"
