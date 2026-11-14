@@ -13,7 +13,7 @@ The Kings are back in action this weekend against Skyworld FC.
 
 {% assign sky = site.data.fixtures | where: "opponent", "Skyworld FC" | first %}{% include matchday-squad.html f=sky open=true %}
 
-![Apapa Kings matchday squad list for Skyworld FC](/images/photos/skyworld-squad-list.jpg)
+![Apapa Kings starting XI for Skyworld FC](/images/photos/skyworld-starting-xi.jpg)
 
 Come out and back the team. Follow [@{{ site.data.club.tiktok }}](https://www.tiktok.com/@{{ site.data.club.tiktok }}) for match-day updates.
 
