@@ -1,0 +1,19 @@
+{%- comment -%} Matchday squad list for a fixture. Pass f=fixture (needs f.squad). {%- endcomment -%}
+{%- assign ms = include.f.squad -%}
+{%- if ms -%}
+{%- assign ms_count = 0 -%}
+{%- for g in site.data.squad.groups -%}{%- assign ms_count = ms_count | plus: ms[g.code].size -%}{%- endfor -%}
+<details class="matchday-squad"{% if include.open %} open{% endif %}>
+  <summary><span class="label">Matchday squad</span> <span class="tag">{{ ms_count }} players</span></summary>
+  <div class="matchday-squad__groups">
+    {%- for g in site.data.squad.groups -%}
+    {%- if ms[g.code] -%}
+    <div>
+      <h3 class="label label--small">{{ g.label }}</h3>
+      <ul>{%- for n in ms[g.code] -%}<li>{{ n }}</li>{%- endfor -%}</ul>
+    </div>
+    {%- endif -%}
+    {%- endfor -%}
+  </div>
+</details>
+{%- endif -%}
