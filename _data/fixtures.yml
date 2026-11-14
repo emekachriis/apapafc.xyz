@@ -14,6 +14,8 @@
 #  type:      optional label, defaults to "Friendly"
 #  crest:     optional, the other team's badge, e.g. images/opponents/somebody.jpg
 #  squad:     optional matchday squad, by group, e.g.  GK: [Ebuka]  DEF: [Praise, Chris]
+#  lineup:    optional starting XI in order, with captain:, subs: [...] and lineup_note: (a caption).
+#             Once a lineup is set it replaces the squad list on the site.
 #
 #  To link a match report, give the news post  match: "YYYY-MM-DD"
 #  (the same date as the fixture). See README.
@@ -81,6 +83,13 @@
     DEF: [Praise, Samuel, Benjamin, Chris, Alakhumen, Diamond, "Ketris (trialist)"]
     MID: [Divine, Ola, Buchi, Great, Charles, Adeleke, Pascal]
     FWD: [David, Francis, Joseph, Wisdom, Aboy, Goodness]
+  lineup: [Ebuka, Diamond, Great, Chris, Benjamin, Ola, Buchi, Adeleke, Aboy, David, Divine]
+  captain: Chris
+  subs: [Praise, Samuel, Alakhumen, "Ketris (trialist)", Charles, Pascal, Francis, Joseph, Wisdom, Goodness]
+  lineup_note: |
+    Ebuka in goal 🧤
+    Buchi pulling the strings
+    Divine uptop
 
 # ── Example of an upcoming match (remove the # signs to use it) ──
 # - date: 2026-12-06

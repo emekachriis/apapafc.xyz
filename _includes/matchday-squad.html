@@ -1,6 +1,24 @@
-{%- comment -%} Matchday squad list for a fixture. Pass f=fixture (needs f.squad). {%- endcomment -%}
-{%- assign ms = include.f.squad -%}
-{%- if ms -%}
+{%- comment -%}
+  Matchday team for a fixture. Pass f=fixture.
+  Shows the starting XI + subs when f.lineup is set, otherwise the squad list (f.squad).
+{%- endcomment -%}
+{%- assign mf_ = include.f -%}
+{%- if mf_.lineup -%}
+<details class="matchday-squad"{% if include.open %} open{% endif %}>
+  <summary><span class="label">Starting XI</span> <span class="tag">{{ mf_.lineup.size }}{% if mf_.subs %} + {{ mf_.subs.size }} subs{% endif %}</span></summary>
+  <div class="matchday-squad__body">
+    {%- if mf_.lineup_note -%}<p class="matchday-squad__note">{{ mf_.lineup_note | strip | newline_to_br }}</p>{%- endif -%}
+    <ol class="matchday-squad__xi">
+      {%- for n in mf_.lineup -%}<li>{{ n }}{% if n == mf_.captain %} <abbr class="captain" title="Captain">C</abbr>{% endif %}</li>{%- endfor -%}
+    </ol>
+    {%- if mf_.subs -%}
+    <h3 class="label label--small">Subs</h3>
+    <p class="matchday-squad__subs">{{ mf_.subs | join: " · " }}</p>
+    {%- endif -%}
+  </div>
+</details>
+{%- elsif mf_.squad -%}
+{%- assign ms = mf_.squad -%}
 {%- assign ms_count = 0 -%}
 {%- for g in site.data.squad.groups -%}{%- assign ms_count = ms_count | plus: ms[g.code].size -%}{%- endfor -%}
 <details class="matchday-squad"{% if include.open %} open{% endif %}>
