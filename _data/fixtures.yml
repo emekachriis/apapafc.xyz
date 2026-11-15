@@ -98,6 +98,15 @@
   crest: images/opponents/golden-united.jpg
   home: false
   venue: Nathaniel Idowu Stadium, Ajegunle
+  score: "2-6"
+  squad:
+    GK: [Ebuka, Bobo]
+    DEF: [Samuel, Chris, Alakhumen, Diamond, Benjamin, ID, Praise]
+    MID: [Ola, Buchi, Great, Adeleke, Charles]
+    FWD: [David, Joseph, Aboy, Francis, Wale, Divine]
+  lineup: [Ebuka, ID, Samuel, Chris, Benjamin, Charles, Adeleke, Buchi, Aboy, Joseph, Divine]
+  captain: Chris
+  subs: [Bobo, Diamond, Alakhumen, Praise, Ola, Great, David, Wale]
 
 # ── Example of an upcoming match (remove the # signs to use it) ──
 # - date: 2026-12-06
