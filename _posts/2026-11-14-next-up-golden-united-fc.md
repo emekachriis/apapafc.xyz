@@ -1,6 +1,8 @@
 ---
 title: "Next up: Golden United FC in Ajegunle"
 kind: club-news
+image: /images/photos/golden-united-preview.jpg
+image_alt: "Match poster: Golden United FC vs Apapa Kings, Sunday 15 November 2026, 2pm, Nathaniel Idowu Stadium, Ajegunle. Away fixture."
 description: Apapa Kings FC face Golden United FC on Sunday 15 November 2026, 2:00pm at Nathaniel Idowu Stadium, Ajegunle.
 ---
 No rest for the Kings. A day after beating Skyworld FC 3–1, they're back on the road against Golden United FC.
