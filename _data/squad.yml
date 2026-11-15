@@ -70,9 +70,9 @@ players:
     position: Left Back
     position_group: DEF
 
-  - number: 16
+  - number: 20
     name: Praise
-    position: Defender
+    position: Left Back / Centre Back
     position_group: DEF
     photo: images/players/praise.jpg
 
@@ -87,21 +87,9 @@ players:
     position_group: DEF
 
   # ── Midfielders ──
-  - number: 7
-    name: Francis
-    position: Attacking Mid
-    position_group: MID
-    photo: images/players/francis.jpg
-
-  - number: 10
-    name: Joseph
-    position: Attacking Mid
-    position_group: MID
-    photo: images/players/joseph.jpg
-
   - number: 6
     name: Ola
-    position: Central Mid
+    position: Defensive Mid
     position_group: MID
     photo: images/players/ola.jpg
 
@@ -123,13 +111,7 @@ players:
     position_group: MID
     photo: images/players/charles.jpg
 
-  - number: 8
-    name: Divine
-    position: Attacking Mid
-    position_group: MID
-    photo: images/players/divine.jpg
-
-  - number: 20
+  - number: 16
     name: Adeleke
     position: Central Mid
     position_group: MID
@@ -142,6 +124,24 @@ players:
     photo: images/players/buchi.jpg
 
   # ── Forwards ──
+  - number: 7
+    name: Francis
+    position: Right Winger
+    position_group: FWD
+    photo: images/players/francis.jpg
+
+  - number: 8
+    name: Divine
+    position: Striker / Attacking Mid
+    position_group: FWD
+    photo: images/players/divine.jpg
+
+  - number: 10
+    name: Joseph
+    position: Right Winger
+    position_group: FWD
+    photo: images/players/joseph.jpg
+
   - number: 9
     name: Wisdom
     position: Striker
