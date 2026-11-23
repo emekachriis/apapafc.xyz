@@ -186,6 +186,12 @@
       document.getElementById("link-warning").hidden = link !== PLACEHOLDER;
     }
 
+    // If this page is opened from the live website (not from your PC),
+    // use the website's own address, so the link is always right
+    if (location.protocol === "https:" || location.protocol === "http:") {
+      linkBox.value = location.origin + "/";
+    }
+
     linkBox.addEventListener("input", drawQR);   // redraw on every keystroke
     document.getElementById("print-btn").addEventListener("click", function () {
       window.print();
