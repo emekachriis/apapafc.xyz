@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Outer circle: palm-oil orange -->
+  <circle cx="60" cy="60" r="58" fill="#C2410C"/>
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#FFF7ED" stroke-width="2" stroke-dasharray="4 4"/>
+  <!-- Steam -->
+  <path d="M48 30 q-5 6 0 12 q5 6 0 12" fill="none" stroke="#FFF7ED" stroke-width="3" stroke-linecap="round"/>
+  <path d="M60 26 q-5 6 0 12 q5 6 0 12" fill="none" stroke="#FFF7ED" stroke-width="3" stroke-linecap="round"/>
+  <path d="M72 30 q-5 6 0 12 q5 6 0 12" fill="none" stroke="#FFF7ED" stroke-width="3" stroke-linecap="round"/>
+  <!-- Bowl -->
+  <path d="M30 62 h60 a30 22 0 0 1 -60 0 z" fill="#E9A23B"/>
+  <!-- Initials -->
+  <text x="60" y="78" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="18" fill="#3B2414">E&amp;T</text>
+</svg>

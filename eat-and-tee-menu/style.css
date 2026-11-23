@@ -1,0 +1,544 @@
+/* =========================================================
+   EAT AND TEE — MENU STYLES
+   Mobile-first: these styles are written for phones.
+   The @media rule at the bottom adjusts things for bigger screens.
+   ========================================================= */
+
+/* ---- 1. Colour "variables" ----
+   --name: value; stores a colour once so we can reuse it with var(--name).
+   Change a colour here and it changes everywhere on the page. */
+:root {
+  --cream:      #FFF7ED;  /* page background */
+  --card:       #FFFFFF;  /* item cards */
+  --brown:      #3B2414;  /* main text */
+  --brown-soft: #7A5C48;  /* descriptions */
+  --palm:       #C2410C;  /* palm-oil orange: headings, prices */
+  --mustard:    #E9A23B;  /* accents */
+  --line:       #F1DFC8;  /* thin borders */
+}
+
+/* ---- 2. Basics ---- */
+* {
+  box-sizing: border-box;  /* padding no longer makes boxes wider than you set */
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--cream);
+  color: var(--brown);
+  line-height: 1.4;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  margin: 0;
+}
+
+/* ---- 3. Header ---- */
+.site-header {
+  background: var(--palm);
+  color: var(--cream);
+  text-align: center;
+  padding: 24px 16px 20px;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 8px;   /* "auto" left and right centres the logo */
+}
+
+.site-header h1 {
+  font-size: 2rem;
+}
+
+.tagline {
+  margin: 4px 0 10px;
+  font-style: italic;
+  color: var(--mustard);
+}
+
+.info {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ---- 3b. Category bar ---- */
+html {
+  scroll-behavior: smooth;   /* glide to a section instead of jumping */
+}
+
+.category-bar {
+  position: sticky;          /* scrolls normally... */
+  top: 0;                    /* ...until it hits the top, then stays there */
+  z-index: 10;               /* sits above the menu cards as they scroll under */
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 6px rgba(59, 36, 20, 0.08);
+}
+
+.category-bar ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;          /* swipe sideways if the buttons don't all fit */
+  scrollbar-width: none;     /* hide the scrollbar (it looks messy on phones) */
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 10px 16px;
+}
+
+.category-bar a {
+  display: block;
+  white-space: nowrap;       /* keep "🍗 Protein" on one line */
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--brown);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.category-bar a:hover,
+.category-bar a:active {
+  background: var(--palm);
+  color: var(--cream);
+}
+
+/* When you jump to a section, leave room so the bar doesn't cover its heading */
+.category {
+  scroll-margin-top: 60px;
+}
+
+/* ---- 4. Main area ---- */
+main {
+  max-width: 640px;     /* stops the menu stretching too wide on laptops */
+  margin: 0 auto;       /* centres it */
+  padding: 0 16px 32px;
+}
+
+/* Small box telling customers about extra charges */
+.notice {
+  margin: 16px 0 0;
+  padding: 10px 12px;
+  background: #FDF0DC;
+  border: 1px dashed var(--mustard);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.category h2 {
+  color: var(--palm);
+  font-size: 1.5rem;
+  padding: 24px 0 8px;
+  border-bottom: 2px solid var(--mustard);
+  margin-bottom: 12px;
+}
+
+/* ---- 5. Item cards ---- */
+.item {
+  display: flex;        /* photo and text side by side */
+  gap: 12px;            /* space between photo and text */
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.item img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;    /* crops the photo neatly instead of squashing it */
+  border-radius: 8px;
+  flex-shrink: 0;       /* never let the photo get squeezed smaller */
+}
+
+.item-text {
+  flex: 1;              /* text takes up all remaining space */
+}
+
+.item h3 {
+  font-size: 1.1rem;
+}
+
+.desc {
+  margin: 2px 0 6px;
+  font-size: 0.9rem;
+  color: var(--brown-soft);
+}
+
+.price {
+  margin: 0;
+  font-weight: bold;
+  color: var(--palm);
+}
+
+/* Size options shown as little rounded "pills" */
+.sizes {
+  list-style: none;     /* removes the bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;      /* pills drop to a new line if there isn't room */
+  gap: 6px;
+}
+
+.sizes li {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 999px; /* a huge radius makes a perfect pill shape */
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.sizes span {
+  font-weight: bold;
+  color: var(--palm);
+}
+
+/* ---- 6. Sold out ---- */
+.sold-out {
+  opacity: 0.55;        /* fades the whole card */
+}
+
+.sold-out img {
+  filter: grayscale(1); /* turns the photo black and white */
+}
+
+.badge {
+  display: inline-block;
+  background: var(--brown);
+  color: var(--cream);
+  font-family: system-ui, sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+/* ---- 7. Footer ---- */
+.site-footer {
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.9rem;
+  color: var(--brown-soft);
+  border-top: 1px solid var(--line);
+}
+
+.site-footer p {
+  margin: 4px 0;
+}
+
+/* ---- 7b. Size / price rows with + / − buttons ---- */
+.option {
+  display: flex;
+  justify-content: space-between;  /* label on the left, buttons on the right */
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-top: 1px dashed var(--line);
+}
+
+.option-label strong {
+  color: var(--palm);
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-btn,
+.step-btn {
+  font: inherit;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  background: var(--palm);
+  color: var(--cream);
+}
+
+.add-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.step-btn {
+  width: 34px;              /* big enough for a thumb */
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.qty {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ---- 7c. Cart bar at the bottom ---- */
+body {
+  padding-bottom: 80px;     /* room so the bar never covers the footer */
+}
+
+.cart-bar {
+  position: fixed;          /* stays on screen while you scroll */
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 20;
+  max-width: 616px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 14px;
+  background: var(--brown);
+  color: var(--cream);
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(59, 36, 20, 0.35);
+}
+
+.cart-bar strong {
+  color: var(--mustard);
+  font-size: 1.1rem;
+}
+
+.cart-bar-link {
+  font-weight: 600;
+}
+
+/* ---- 7d. Cart panel ---- */
+.cart-backdrop {
+  position: fixed;
+  inset: 0;                 /* cover the whole screen */
+  z-index: 30;
+  background: rgba(59, 36, 20, 0.5);
+  display: flex;
+  align-items: flex-end;    /* push the sheet to the bottom */
+  justify-content: center;
+}
+
+/* "hidden" must win over display:flex above */
+.cart-backdrop[hidden],
+.cart-bar[hidden] {
+  display: none;
+}
+
+.cart-sheet {
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;         /* never taller than 85% of the screen */
+  overflow-y: auto;         /* scroll inside if the order is long */
+  background: var(--cream);
+  border-radius: 18px 18px 0 0;
+  padding: 18px 16px 24px;
+}
+
+.no-scroll {
+  overflow: hidden;         /* stop the menu scrolling behind the open cart */
+}
+
+.cart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-head h2 {
+  color: var(--palm);
+}
+
+.close-btn {
+  border: none;
+  background: var(--card);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cart-lines {
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
+}
+
+.cart-lines li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.line-price {
+  color: var(--palm);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.order-type {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.order-type legend {
+  font-weight: 700;
+  padding: 0 4px;
+}
+
+.order-type label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.order-type input {
+  accent-color: var(--palm); /* colours the radio dot */
+}
+
+.totals {
+  margin: 0 0 14px;
+}
+
+.totals div {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.totals div[hidden] {
+  display: none;
+}
+
+.totals dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.totals .grand {
+  border-top: 2px solid var(--mustard);
+  margin-top: 6px;
+  padding-top: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.totals .grand dd {
+  color: var(--palm);
+  font-weight: 700;
+}
+
+/* ---- 7e. Customer details and WhatsApp button ---- */
+.details {
+  display: flex;
+  flex-direction: column;   /* stack the boxes top to bottom */
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.details label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.details label[hidden] {
+  display: none;
+}
+
+.details input,
+.details textarea {
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;          /* 16px+ stops iPhones zooming in when you tap */
+  padding: 10px 12px;
+  border: 1px solid #E3C9A8;
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--brown);
+  resize: vertical;
+}
+
+.details input:focus,
+.details textarea:focus {
+  outline: 2px solid var(--mustard);
+  border-color: var(--mustard);
+}
+
+.form-error {
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #FDE2DC;
+  color: #9A1B0B;
+  font-weight: 600;
+}
+
+.form-error[hidden] {
+  display: none;
+}
+
+.whatsapp-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 14px;
+  background: #25D366;      /* WhatsApp green */
+  color: #FFFFFF;
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.whatsapp-btn:active {
+  background: #1EB257;
+}
+
+.clear-btn {
+  font: inherit;
+  background: none;
+  border: none;
+  color: var(--brown-soft);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ---- 8. Bigger screens ----
+   Everything above is for phones. This only kicks in at 600px wide or more. */
+@media (min-width: 600px) {
+  .item img {
+    width: 110px;
+    height: 110px;
+  }
+}
