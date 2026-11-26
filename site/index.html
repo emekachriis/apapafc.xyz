@@ -1,0 +1,280 @@
+<!doctype html>
+<!--
+  PLACEHOLDERS: replace every one before deploying. Check with:  grep -n "{{" index.html
+    {{CHECKOUT_URL}}   Lemon Squeezy checkout link
+    {{INTAKE_URL}}     Tally intake form link
+    {{EMAIL}}          contact email address
+    {{DOMAIN}}         your domain, e.g. example.com (no https://, no trailing slash)
+    {{REFUND_POLICY}}  your refund policy, one or two sentences
+    {{BIO}}            two or three sentences about you
+  Visible text placeholders are also wrapped in <mark class="ph"> so they show yellow on the page.
+-->
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year-End Rental Books: PM statements reconciled for your CPA</title>
+<meta name="description" content="For US rental owners with outside property managers. Send a year of PM statements and your bank export; get back one reconciled, per-property workbook your CPA can use. $149 first property, $49 each extra. Bookkeeping, not tax advice.">
+<link rel="canonical" href="https://{{DOMAIN}}/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1f3a5f">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Year-End Rental Books">
+<meta property="og:title" content="A year of PM statements, reconciled for your CPA">
+<meta property="og:description" content="One reconciled, per-property workbook from your property manager statements and bank export. Bookkeeping prepared for your CPA. Not tax advice.">
+<meta property="og:url" content="https://{{DOMAIN}}/">
+<meta property="og:image" content="https://{{DOMAIN}}/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sample workbook summary page with fictional data">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<style>
+:root{
+  --ink:#1b2430; --muted:#55606e; --navy:#1f3a5f; --rule:#d8dee6; --paper:#fbfaf7;
+  --card:#ffffff; --tint:#eef2f6; --accent:#1f5f3f; --warn:#fff3c4;
+  --serif: Georgia, "Times New Roman", Times, serif;
+  --sans: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--sans)}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--navy)}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.25;font-weight:normal}
+h1{font-size:clamp(30px,5vw,42px);margin:0 0 16px}
+h2{font-size:clamp(24px,3.6vw,30px);margin:0 0 14px}
+h3{font-size:19px;margin:0 0 6px}
+p{margin:0 0 14px}
+section{padding:48px 0;border-top:1px solid var(--rule)}
+.muted{color:var(--muted)}
+.small{font-size:15px}
+
+/* header */
+.top{background:var(--card);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.brand{font-family:var(--serif);font-size:19px;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:9px}
+.brand img{width:26px;height:26px}
+
+/* buttons */
+.btn{display:inline-block;padding:12px 20px;border-radius:4px;font-weight:600;text-decoration:none;border:1px solid var(--navy);font-size:16px;line-height:1.2;text-align:center}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:#16304f}
+.btn.secondary{background:var(--card);color:var(--navy)}
+.btn.secondary:hover{background:var(--tint)}
+.btn.small{padding:8px 14px;font-size:15px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 10px}
+
+/* hero */
+.hero{padding:54px 0 40px;border-top:0}
+.lede{font-size:19px;color:var(--ink);max-width:680px}
+.disclaimer{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--navy);padding:12px 16px;font-size:15px;margin-top:22px}
+
+/* lists and cards */
+ul.plain{padding-left:20px;margin:0 0 14px}
+ul.plain li{margin-bottom:6px}
+.sheets{list-style:none;padding:0;margin:0 0 24px;counter-reset:s}
+.sheets li{counter-increment:s;padding:12px 0 12px 44px;border-bottom:1px solid var(--rule);position:relative}
+.sheets li::before{content:counter(s);position:absolute;left:0;top:12px;width:30px;height:30px;border:1px solid var(--navy);border-radius:50%;text-align:center;line-height:28px;font-family:var(--serif);color:var(--navy)}
+.sheets b{color:var(--navy)}
+figure{margin:0 0 22px;background:var(--card);border:1px solid var(--rule);padding:10px}
+figure a{display:block}
+figcaption{font-size:14px;color:var(--muted);padding:8px 4px 0}
+
+/* price */
+.price{background:var(--card);border:1px solid var(--rule);padding:24px}
+.price table{border-collapse:collapse;width:100%;margin:6px 0 16px;font-variant-numeric:tabular-nums}
+.price td{padding:10px 0;border-bottom:1px solid var(--rule)}
+.price td:last-child{text-align:right;font-family:var(--serif);font-size:22px;color:var(--navy);white-space:nowrap;padding-left:12px}
+.founding{background:var(--tint);padding:12px 16px;margin:0 0 16px;font-size:16px}
+
+/* steps */
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.steps li{background:var(--card);border:1px solid var(--rule);padding:16px 18px}
+.steps .n{font-family:var(--serif);color:var(--navy);font-size:15px;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:2px}
+@media (min-width:720px){.steps{grid-template-columns:repeat(3,1fr)}}
+
+/* FAQ */
+details{border-bottom:1px solid var(--rule);padding:4px 0}
+summary{cursor:pointer;padding:12px 0;font-weight:600;color:var(--navy);list-style-position:outside}
+details[open] summary{margin-bottom:4px}
+details p,details ul{margin-left:2px}
+
+mark.ph{background:var(--warn);color:inherit;padding:0 3px;border:1px dashed #c9a400}
+
+footer{border-top:1px solid var(--rule);padding:30px 0 50px;font-size:14px;color:var(--muted)}
+footer p{margin:0 0 8px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="/favicon.svg" alt="" width="26" height="26">Year-End Rental Books</a>
+    <a class="btn primary small" href="{{CHECKOUT_URL}}">Get started</a>
+  </div>
+</header>
+
+<main>
+<!-- 1. Headline -->
+<section class="hero">
+  <div class="wrap">
+    <h1>Your property manager statements, turned into one reconciled workbook for your CPA.</h1>
+    <p class="lede">For US rental owners whose properties are run by one or more outside property managers. Send me a year of PM statements and your bank export. I return a per-property workbook, tied out to your bank, that your CPA can use to prepare Schedule E.</p>
+    <div class="actions">
+      <a class="btn primary" href="{{CHECKOUT_URL}}">Get started: $149 first property</a>
+      <a class="btn secondary" href="/sample-rental-books-2026.pdf">See a sample (PDF)</a>
+    </div>
+    <p class="disclaimer"><strong>Bookkeeping prepared for your CPA.</strong> This is not tax advice, tax preparation or tax filing. Your CPA prepares and files your return.</p>
+  </div>
+</section>
+
+<!-- 2. Who it's for -->
+<section id="who">
+  <div class="wrap">
+    <h2>Who it's for</h2>
+    <p>Owners with roughly 3 to 30 rental doors, managed by an outside property manager, or by two or three different ones.</p>
+    <p>The moment is January to March. Your CPA asks for the year's rental numbers, and what you have is twelve PDF statements per property, laid out differently by each manager, often with rent shown net of fees, repairs tucked into "other", and deposits that don't obviously match your bank.</p>
+    <p>I do the sorting, matching and adding up. Your CPA gets clean totals per property, with every open question listed in one place.</p>
+  </div>
+</section>
+
+<!-- 3. What you get -->
+<section id="what">
+  <div class="wrap">
+    <h2>What you get</h2>
+    <p>One Excel workbook (it also opens in Google Sheets) covering calendar year 2026. Every total is a live formula your CPA can trace.</p>
+    <ol class="sheets">
+      <li><b>Summary.</b> Owner, year, each property's totals, a status line, and the bookkeeping-not-tax-advice disclaimer.</li>
+      <li><b>Ledger, one per property.</b> Month by month: gross rent collected, management fee, leasing fee, repairs, other PM charges and net owner distribution. Gross rent and fees are kept separate, never netted.</li>
+      <li><b>Schedule E map.</b> Each property's annual totals placed against the 2026 Schedule E line they would usually go on, for your CPA to confirm.</li>
+      <li><b>Bank tie-out.</b> Each month's PM distribution against the deposit in your bank export, with any difference highlighted.</li>
+      <li><b>Exceptions.</b> The items your CPA should look at: deposits that don't match, missing months, unexplained charges, and expenses you paid yourself outside the PM.</li>
+      <li><b>Contractors.</b> Every payee and their 2026 total, with anyone paid $2,000 or more flagged so your CPA can review 1099-NEC filing.</li>
+    </ol>
+
+    <figure>
+      <a href="/img/shot-summary.png"><img src="/img/shot-summary.png" width="1400" height="651" alt="Sample Summary sheet: two fictional properties with totals for rent, fees, repairs, net distributions, bank tie-out difference and open exceptions"></a>
+      <figcaption>Summary sheet from the sample workbook. Fictional data.</figcaption>
+    </figure>
+    <figure>
+      <a href="/img/shot-ledger.png"><img src="/img/shot-ledger.png" width="1400" height="567" alt="Sample Ledger sheet: twelve months of gross rent, management fee, leasing fee, repairs and other charges for one fictional property" loading="lazy"></a>
+      <figcaption>Ledger for one property: rent and every fee in its own column. Fictional data.</figcaption>
+    </figure>
+    <figure>
+      <a href="/img/shot-tieout.png"><img src="/img/shot-tieout.png" width="1400" height="698" alt="Sample Bank tie-out sheet: monthly PM distributions against bank deposits, with one month's difference highlighted" loading="lazy"></a>
+      <figcaption>Bank tie-out: the shaded month doesn't match and is listed on the Exceptions sheet. Fictional data.</figcaption>
+    </figure>
+    <p><a class="btn secondary" href="/sample-rental-books-2026.pdf">Download the sample: Summary and Schedule E map (PDF)</a></p>
+  </div>
+</section>
+
+<!-- 4. Price -->
+<section id="price">
+  <div class="wrap">
+    <h2>Price</h2>
+    <div class="price">
+      <table>
+        <tr><td>First property</td><td>$149</td></tr>
+        <tr><td>Each additional property</td><td>$49</td></tr>
+      </table>
+      <p class="small muted">Covers calendar year 2026. Example: three properties cost $149 + $49 + $49 = $247. One flat price per property, whatever the number of statements.</p>
+      <p class="founding"><strong>Founding offer:</strong> I'm taking 5 owners this month, so each one gets my full attention.</p>
+      <a class="btn primary" href="{{CHECKOUT_URL}}">Get started</a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. How it works -->
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><span class="n">Step 1</span><strong>Pay</strong><br>Check out securely for the number of properties you have.</li>
+      <li><span class="n">Step 2</span><strong>Upload</strong><br>Send your 2026 PM statements (PDF or CSV) and a bank export through the upload form.</li>
+      <li><span class="n">Step 3</span><strong>Receive</strong><br>Your workbook arrives by email within 5 business days of complete documents.</li>
+    </ol>
+    <div class="actions">
+      <a class="btn primary" href="{{CHECKOUT_URL}}">Get started</a>
+      <a class="btn secondary" href="{{INTAKE_URL}}">Send documents</a>
+    </div>
+    <p class="small muted">Already paid? Use "Send documents" to upload your files.</p>
+  </div>
+</section>
+
+<!-- 6. Trust and privacy -->
+<section id="privacy">
+  <div class="wrap">
+    <h2>Trust and privacy</h2>
+    <ul class="plain">
+      <li><strong>No logins, ever.</strong> I never ask for your bank or property manager logins. I only work from statements and exports you download and send.</li>
+      <li><strong>Files deleted after 30 days.</strong> Your uploaded files and my working copies are deleted 30 days after I deliver your workbook.</li>
+      <li><strong>Not tax advice.</strong> This is bookkeeping prepared for your CPA. It is not tax advice, tax preparation or tax filing. Your CPA decides how every item is reported.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <h2>Questions</h2>
+    <details>
+      <summary>Which files do I send?</summary>
+      <ul class="plain">
+        <li>Every monthly owner statement from each property manager for January to December 2026 (PDF or CSV). A year-end summary from the PM also helps, if they provide one.</li>
+        <li>A bank export (CSV, or PDF statements) for January to December 2026 from the account the PM pays into.</li>
+        <li>Receipts or a short list of anything you paid yourself, outside the PM (for example insurance or a repair you paid directly).</li>
+      </ul>
+    </details>
+    <details>
+      <summary>What if a month is missing?</summary>
+      <p>I'll tell you which statements are missing as soon as I've checked your files, so you can ask your PM for them. If a statement can't be found, I note the month on the Exceptions sheet, along with any bank deposit that has no statement behind it, so your CPA can see exactly what is and isn't covered. The 5-business-day clock starts when the documents are complete.</p>
+    </details>
+    <details>
+      <summary>My properties have different property managers. Is that a problem?</summary>
+      <p>No. Each property gets its own ledger whatever its manager's statement looks like, and the bank tie-out matches each manager's payments separately.</p>
+    </details>
+    <details>
+      <summary>What is your refund policy?</summary>
+      <p><mark class="ph">{{REFUND_POLICY}}</mark></p>
+    </details>
+    <details>
+      <summary>Who are you?</summary>
+      <p><mark class="ph">{{BIO}}</mark></p>
+      <p>You can reach me at <a href="mailto:{{EMAIL}}"><mark class="ph">{{EMAIL}}</mark></a>.</p>
+    </details>
+    <details>
+      <summary>Will you prepare or file my tax return?</summary>
+      <p>No. This is bookkeeping prepared for your CPA. It is not tax advice, tax preparation or tax filing. I organise and reconcile your numbers; your CPA prepares and files your return.</p>
+    </details>
+  </div>
+</section>
+
+<section id="start">
+  <div class="wrap">
+    <h2>Ready when you are</h2>
+    <p>$149 for the first property, $49 for each extra, covering 2026. Your workbook arrives within 5 business days of complete documents.</p>
+    <div class="actions">
+      <a class="btn primary" href="{{CHECKOUT_URL}}">Get started</a>
+      <a class="btn secondary" href="{{INTAKE_URL}}">Send documents</a>
+    </div>
+    <p class="small">Questions first? Email <a href="mailto:{{EMAIL}}"><mark class="ph">{{EMAIL}}</mark></a>.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Bookkeeping prepared for your CPA. Not tax advice, tax preparation or tax filing.</strong> Workbooks are compiled from the statements and bank exports you supply and are not audited. Your CPA decides how every item is reported.</p>
+    <p>Screenshots and the sample PDF use fictional data.</p>
+    <p>Contact: <a href="mailto:{{EMAIL}}"><mark class="ph">{{EMAIL}}</mark></a></p>
+  </div>
+</footer>
+</body>
+</html>
